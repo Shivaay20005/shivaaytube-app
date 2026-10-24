@@ -1,4 +1,4 @@
-package io.github.aedev.flow.ui.components
+package io.github.shivaay.flow.ui.components
 
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -33,9 +33,9 @@ import androidx.compose.ui.zIndex
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
-import io.github.aedev.flow.data.model.Video
-import io.github.aedev.flow.player.EnhancedPlayerManager
-import io.github.aedev.flow.ui.theme.extendedColors
+import io.github.shivaay.flow.data.model.Video
+import io.github.shivaay.flow.player.EnhancedPlayerManager
+import io.github.shivaay.flow.ui.theme.extendedColors
 import kotlinx.coroutines.delay
 import kotlin.math.abs
 import kotlin.math.roundToInt

@@ -1,0 +1,8 @@
+package io.github.shivaay.flow.innertube.models.response
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class CreatePlaylistResponse(
+    val playlistId: String
+)

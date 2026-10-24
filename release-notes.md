@@ -1,3 +1,11 @@
+# ShivaayTube v1.0.0
+
+**Release date:** 2026-10-24
+**Status:** Stable
+**Developer:** Shivaay
+
+Welcome to the initial release of ShivaayTube v1.0.0!
+
 # Flow v3.0.0
 
 **Release date:** 2026-10-18

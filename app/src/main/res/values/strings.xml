@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Flow</string>
-    <string name="app_launcher_name" translatable="false">Flow</string>
+    <string name="app_name">ShivaayTube</string>
+    <string name="app_launcher_name" translatable="false">ShivaayTube</string>
     <string name="subscriptions_search_placeholder">Search subscriptions ...</string>
     <string name="subscriptions_sort_label">Sort channels</string>
     <string name="subscriptions_sort_default">Default</string>
@@ -784,10 +784,10 @@
     <string name="settings_item_export_data_subtitle">Backup your data</string>
     <string name="settings_item_import_data">Import Data</string>
     <string name="settings_item_import_data_subtitle">Restore from backup or import from other apps</string>
-    <string name="settings_item_about_flow">About Flow</string>
+    <string name="settings_item_about_flow">About ShivaayTube</string>
     <string name="settings_item_about_flow_subtitle">Version, License, Contributors</string>
     <string name="settings_item_support">Support &amp; Donations</string>
-    <string name="settings_item_support_subtitle">Help support the development of Flow</string>
+    <string name="settings_item_support_subtitle">Help support the development of ShivaayTube</string>
     <string name="settings_region_dialog_title">Select Region</string>
     <string name="settings_language_dialog_title">Select App Language</string>
     <string name="settings_language_system_default">System default</string>
@@ -1841,8 +1841,8 @@
     <string name="address_copied_toast">Address copied to clipboard</string>
     <string name="donation_address_clip_label">Donation Address</string>
     <!-- One-time support prompt -->
-    <string name="donation_prompt_title">Enjoying Flow?</string>
-    <string name="donation_prompt_message">Flow is free, open source and ad-free. If it earned a spot on your phone, a little support keeps it going.</string>
+    <string name="donation_prompt_title">Enjoying ShivaayTube?</string>
+    <string name="donation_prompt_message">ShivaayTube is free, open source and ad-free. If it earned a spot on your phone, a little support keeps it going.</string>
     <string name="donation_method_open_collective" translatable="false">Open Collective</string>
     <string name="donation_method_patreon" translatable="false">Patreon</string>
     <string name="donation_prompt_methods">Open Collective · Patreon · Bitcoin · Ethereum · Solana · USDT · Monero</string>
@@ -1851,9 +1851,9 @@
     <string name="donation_prompt_never">Don\'t show again</string>
     <!-- About Screen -->
     <string name="about_creator">Creator</string>
-    <string name="about_creator_name">A-EDev</string>
+    <string name="about_creator_name">Shivaay</string>
     <string name="about_website">Website</string>
-    <string name="about_website_address">flow-tube.org</string>
+    <string name="about_website_address">github.com/Shivaay20005/shivaaytube-app</string>
     <string name="about_reddit">Reddit</string>
     <string name="about_reddit_subtitle">r/Flow_Official</string>
     <string name="github_subtitle">Source code &amp; Issues</string>
@@ -1864,7 +1864,7 @@
     <string name="about_notices_summary">Word lists and code from other projects</string>
     <string name="about_license_name">GNU GPL v3</string>
     <string name="about_changelog">Changelog</string>
-    <string name="whats_new_in_flow">What\'s new in Flow</string>
+    <string name="whats_new_in_flow">What\'s new in ShivaayTube</string>
     <string name="about_device_info">Device Info</string>
     <string name="gnu_license_full_title">GNU General Public License</string>
     <string name="loading_ellipsis">Loading...</string>

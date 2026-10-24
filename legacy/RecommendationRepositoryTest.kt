@@ -1,11 +1,11 @@
-package io.github.aedev.flow.legacy
+package io.github.shivaay.flow.legacy
 
 import android.content.Context
 import android.util.Log
-import io.github.aedev.flow.data.local.*
-import io.github.aedev.flow.data.model.Video
-import io.github.aedev.flow.data.repository.YouTubeRepository
-import io.github.aedev.flow.legacy.RecommendationRepository
+import io.github.shivaay.flow.data.local.*
+import io.github.shivaay.flow.data.model.Video
+import io.github.shivaay.flow.data.repository.YouTubeRepository
+import io.github.shivaay.flow.legacy.RecommendationRepository
 import com.google.common.truth.Truth.assertThat
 import io.mockk.*
 import kotlinx.coroutines.flow.flowOf

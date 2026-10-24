@@ -1,0 +1,151 @@
+name: Release ShivaayTube
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release Tag (e.g. v1.0.0)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Release Tag
+        id: tag_info
+        run: |
+          if [ -n "${{ github.event.inputs.tag_name }}" ]; then
+            TAG="${{ github.event.inputs.tag_name }}"
+          elif [ "${GITHUB_REF#refs/tags/}" != "$GITHUB_REF" ]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+          else
+            TAG="v1.0.0"
+          fi
+          echo "RELEASE_TAG=$TAG" >> "$GITHUB_ENV"
+          echo "Tag: $TAG"
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Use CI Gradle properties
+        run: |
+          mkdir -p ~/.gradle
+          if [ -f .github/ci-gradle.properties ]; then
+            cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+          fi
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Setup Signing Keystore
+        id: setup_keystore
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+          STORE_PASS: ${{ secrets.STORE_PASSWORD }}
+          KEY_AL: ${{ secrets.KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          if [ -n "$RELEASE_KEYSTORE_BASE64" ]; then
+            echo "Decoding release keystore from secrets..."
+            echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > release.keystore
+            echo "STORE_PASSWORD=${STORE_PASS:-shivaaytube}" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=${KEY_AL:-shivaaytube}" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=${KEY_PASS:-shivaaytube}" >> "$GITHUB_ENV"
+          else
+            echo "Secrets not provided. Generating fresh release keystore for signed build..."
+            keytool -genkeypair -v \
+              -keystore release.keystore \
+              -alias shivaaytube \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass shivaaytube \
+              -keypass shivaaytube \
+              -dname "CN=Shivaay, OU=ShivaayTube, O=ShivaayTube, L=India, S=India, C=IN"
+            echo "STORE_PASSWORD=shivaaytube" >> "$GITHUB_ENV"
+            echo "KEY_ALIAS=shivaaytube" >> "$GITHUB_ENV"
+            echo "KEY_PASSWORD=shivaaytube" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build Release APKs
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_API_SECRET: ${{ secrets.LASTFM_API_SECRET }}
+        run: >
+          ./gradlew :app:assembleGithubRelease :app:assembleFossRelease
+          --stacktrace
+
+      - name: Prepare and rename APKs
+        run: |
+          mkdir -p dist
+          TAG_CLEAN="${RELEASE_TAG#v}"
+
+          # Copy and rename universal & split APKs
+          if [ -f app/build/outputs/apk/github/release/app-github-universal-release.apk ]; then
+            cp app/build/outputs/apk/github/release/app-github-universal-release.apk "dist/ShivaayTube-v${TAG_CLEAN}.apk"
+          fi
+          if [ -f app/build/outputs/apk/github/release/app-github-arm64-v8a-release.apk ]; then
+            cp app/build/outputs/apk/github/release/app-github-arm64-v8a-release.apk "dist/ShivaayTube-v${TAG_CLEAN}-arm64-v8a.apk"
+          fi
+          if [ -f app/build/outputs/apk/github/release/app-github-armeabi-v7a-release.apk ]; then
+            cp app/build/outputs/apk/github/release/app-github-armeabi-v7a-release.apk "dist/ShivaayTube-v${TAG_CLEAN}-armeabi-v7a.apk"
+          fi
+          if [ -f app/build/outputs/apk/foss/release/app-foss-universal-release.apk ]; then
+            cp app/build/outputs/apk/foss/release/app-foss-universal-release.apk "dist/ShivaayTube-v${TAG_CLEAN}-foss.apk"
+          fi
+
+          cd dist
+          sha256sum *.apk > checksums.txt
+          echo "Generated APKs:"
+          ls -lh
+
+      - name: Create GitHub Release and Upload Artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ShivaayTube ${{ env.RELEASE_TAG }}
+          body: |
+            ## ShivaayTube ${{ env.RELEASE_TAG }}
+            
+            Welcome to the official release of **ShivaayTube ${{ env.RELEASE_TAG }}**!
+            
+            ### Features:
+            - Privacy-first YouTube and YouTube Music streaming (No Google login required)
+            - Background audio playback and Picture-in-Picture (PiP)
+            - Integrated SponsorBlock, DeArrow, and Return YouTube Dislike
+            - On-device local recommendation engine (FlowNeuro)
+            - Full Material 3 Expressive UI
+            
+            ### Downloads:
+            - **Universal APK** (Recommended for most devices): `ShivaayTube-${{ env.RELEASE_TAG }}.apk`
+            - **ARM64-v8a**: `ShivaayTube-${{ env.RELEASE_TAG }}-arm64-v8a.apk`
+            - **FOSS Edition**: `ShivaayTube-${{ env.RELEASE_TAG }}-foss.apk`
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            dist/*.apk
+            dist/checksums.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

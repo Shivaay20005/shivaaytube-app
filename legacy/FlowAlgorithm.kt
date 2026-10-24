@@ -1,7 +1,7 @@
-package io.github.aedev.flow.data.recommendation
+package io.github.shivaay.flow.data.recommendation
 
 import android.util.Log
-import io.github.aedev.flow.data.model.Video
+import io.github.shivaay.flow.data.model.Video
 import kotlin.random.Random
 
 /**
