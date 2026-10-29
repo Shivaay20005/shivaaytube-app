@@ -55,7 +55,7 @@ jobs:
       # repository cache is already at its 10 GB cap. This job restores from
       # the build job's entry instead.
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v6
+        uses: gradle/actions/setup-gradle@v5
         with:
           cache-read-only: true
 
@@ -98,7 +98,7 @@ jobs:
         run: mkdir -p ~/.gradle && cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v6
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -134,7 +134,7 @@ jobs:
       # Read-only for the same reason as the checks job. Lint is never the
       # slowest job, so re-downloading its own dependencies costs no wall time.
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v6
+        uses: gradle/actions/setup-gradle@v5
         with:
           cache-read-only: true
 
@@ -175,7 +175,7 @@ jobs:
         run: mkdir -p ~/.gradle && cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v6
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
