@@ -1,0 +1,28 @@
+/*
+ * Copyright (C) 2025-2026 ShivaayTube | A-EDev
+ *
+ * This file is part of ShivaayTube (https://github.com/Shivaay20005/shivaaytube-app).
+ */
+
+package io.github.shivaay.shivaaytube.ui.components.shared
+
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.MaterialShapes
+import androidx.compose.material3.toShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Shape
+
+/**
+ * Every artist portrait wears this shape, so an artist is recognisable as
+ * one before the label is read. Albums and playlists keep the theme's rounded rectangles.
+ */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun shivaayArtistShape(): Shape = MaterialShapes.Cookie9Sided.toShape()
+
+/**
+ * The shape behind a shuffle or radio action, distinct from both artists and collections.
+ */
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+fun shivaayActionShape(): Shape = MaterialShapes.Cookie12Sided.toShape()
