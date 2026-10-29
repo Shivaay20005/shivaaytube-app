@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.screens.settings
+package io.github.shivaay.shivaaytube.ui.screens.settings
 
 import android.content.Intent
 import android.net.Uri
@@ -26,11 +26,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.shivaay.flow.data.recommendation.FlowNeuroEngine
-import io.github.shivaay.flow.ui.theme.ThemeMode
-import io.github.shivaay.flow.ui.theme.extendedColors
-import io.github.shivaay.flow.data.local.PlayerPreferences
-import io.github.shivaay.flow.data.local.VideoQuality
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
+import io.github.shivaay.shivaaytube.ui.theme.ThemeMode
+import io.github.shivaay.shivaaytube.ui.theme.extendedColors
+import io.github.shivaay.shivaaytube.data.local.PlayerPreferences
+import io.github.shivaay.shivaaytube.data.local.VideoQuality
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
@@ -45,17 +45,17 @@ fun SettingsScreen(
 ) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    val searchHistoryRepo = remember { io.github.shivaay.flow.data.local.SearchHistoryRepository(context) }
+    val searchHistoryRepo = remember { io.github.shivaay.shivaaytube.data.local.SearchHistoryRepository(context) }
     val playerPreferences = remember { PlayerPreferences(context) }
-    val viewHistory = remember { io.github.shivaay.flow.data.local.ViewHistory.getInstance(context) }
-    val backupRepo = remember { io.github.shivaay.flow.data.local.BackupRepository(context) }
+    val viewHistory = remember { io.github.shivaay.shivaaytube.data.local.ViewHistory.getInstance(context) }
+    val backupRepo = remember { io.github.shivaay.shivaaytube.data.local.BackupRepository(context) }
     
     // Brain State
-    var userBrain by remember { mutableStateOf<FlowNeuroEngine.UserBrain?>(null) }
+    var userBrain by remember { mutableStateOf<ShivaayNeuroEngine.UserBrain?>(null) }
     var refreshBrainTrigger by remember { mutableStateOf(0) }
 
     LaunchedEffect(refreshBrainTrigger) {
-        userBrain = FlowNeuroEngine.getBrainSnapshot()
+        userBrain = ShivaayNeuroEngine.getBrainSnapshot()
     }
     
     val exportLauncher = rememberLauncherForActivityResult(
@@ -158,7 +158,7 @@ fun SettingsScreen(
             // =================================================
             item {
                 Text(
-                    text = "My Flow Personality",
+                    text = "My ShivaayTube Personality",
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(start = 8.dp, bottom = 4.dp)
@@ -326,7 +326,7 @@ fun SettingsScreen(
                         icon = Icons.Outlined.FileUpload,
                         title = "Export Data",
                         subtitle = "Backup your data",
-                        onClick = { exportLauncher.launch("flow_backup_${System.currentTimeMillis()}.json") }
+                        onClick = { exportLauncher.launch("shivaay_backup_${System.currentTimeMillis()}.json") }
                     )
                     Divider(Modifier.padding(start = 56.dp), color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
                     SettingsItem(
@@ -370,12 +370,12 @@ fun SettingsScreen(
             onDismissRequest = { showResetBrainDialog = false },
             icon = { Icon(Icons.Default.Refresh, null) },
             title = { Text("Reset Personality?") },
-            text = { Text("This will wipe your 'Flow Brain' data. Recommendations will reset to default.") },
+            text = { Text("This will wipe your 'ShivaayTube Brain' data. Recommendations will reset to default.") },
             confirmButton = {
                 TextButton(
                     onClick = {
                         coroutineScope.launch {
-                            FlowNeuroEngine.resetBrain(context)
+                            ShivaayNeuroEngine.resetBrain(context)
                             refreshBrainTrigger++
                             showResetBrainDialog = false
                         }
@@ -561,10 +561,10 @@ fun SimpleConfirmDialog(title: String, text: String, onConfirm: () -> Unit, onDi
 }
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    val searchHistoryRepo = remember { io.github.shivaay.flow.data.local.SearchHistoryRepository(context) }
+    val searchHistoryRepo = remember { io.github.shivaay.shivaaytube.data.local.SearchHistoryRepository(context) }
     val playerPreferences = remember { PlayerPreferences(context) }
-    val viewHistory = remember { io.github.shivaay.flow.data.local.ViewHistory.getInstance(context) }
-    val backupRepo = remember { io.github.shivaay.flow.data.local.BackupRepository(context) }
+    val viewHistory = remember { io.github.shivaay.shivaaytube.data.local.ViewHistory.getInstance(context) }
+    val backupRepo = remember { io.github.shivaay.shivaaytube.data.local.BackupRepository(context) }
     
     val exportLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("application/json"),
@@ -863,7 +863,7 @@ fun SimpleConfirmDialog(title: String, text: String, onConfirm: () -> Unit, onDi
                     icon = Icons.Outlined.FileUpload,
                     title = "Export Data",
                     subtitle = "Backup your data to a file",
-                    onClick = { exportLauncher.launch("flow_backup_${System.currentTimeMillis()}.json") }
+                    onClick = { exportLauncher.launch("shivaay_backup_${System.currentTimeMillis()}.json") }
                 )
             }
 
@@ -918,7 +918,7 @@ fun SimpleConfirmDialog(title: String, text: String, onConfirm: () -> Unit, onDi
                 SettingsItem(
                     icon = Icons.Outlined.Favorite,
                     title = "Support & Donations",
-                    subtitle = "Help support the development of Flow",
+                    subtitle = "Help support the development of ShivaayTube",
                     onClick = onNavigateToDonations
                 )
             }

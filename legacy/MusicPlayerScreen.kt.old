@@ -117,7 +117,7 @@ fun MusicPlayerScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "Flow Music",
+                        text = "ShivaayTube Music",
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold
                     )

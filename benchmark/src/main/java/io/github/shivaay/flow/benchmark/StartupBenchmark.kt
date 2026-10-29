@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.benchmark
+package io.github.shivaay.shivaaytube.benchmark
 
 import android.content.Intent
 import androidx.benchmark.macro.BaselineProfileMode
@@ -59,7 +59,7 @@ class StartupBenchmark {
             },
         ) {
             startActivityAndWait { intent ->
-                intent.putExtra("io.github.shivaay.flow.extra.BENCHMARK_BYPASS_ONBOARDING", true)
+                intent.putExtra("io.github.shivaay.shivaaytube.extra.BENCHMARK_BYPASS_ONBOARDING", true)
             }
 
             device.wait(Until.hasObject(By.res("home_feed")), 5000)

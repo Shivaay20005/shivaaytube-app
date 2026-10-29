@@ -7,24 +7,24 @@
 <data-extraction-rules>
     <cloud-backup>
         <include domain="file" path="datastore/player_preferences.preferences_pb" />
-        <include domain="file" path="datastore/flow_preferences.preferences_pb" />
+        <include domain="file" path="datastore/shivaay_preferences.preferences_pb" />
         <include domain="file" path="datastore/app_font.preferences_pb" />
         <include domain="file" path="datastore/app_ui_mode.preferences_pb" />
         <include domain="file" path="datastore/audio_settings.preferences_pb" />
         <include domain="file" path="datastore/local_media.preferences_pb" />
-        <include domain="sharedpref" path="flow_language_prefs.xml" />
+        <include domain="sharedpref" path="shivaay_language_prefs.xml" />
     </cloud-backup>
     <device-transfer>
         <include domain="file" path="datastore/player_preferences.preferences_pb" />
-        <include domain="file" path="datastore/flow_preferences.preferences_pb" />
+        <include domain="file" path="datastore/shivaay_preferences.preferences_pb" />
         <include domain="file" path="datastore/app_font.preferences_pb" />
         <include domain="file" path="datastore/app_ui_mode.preferences_pb" />
         <include domain="file" path="datastore/audio_settings.preferences_pb" />
         <include domain="file" path="datastore/local_media.preferences_pb" />
-        <include domain="sharedpref" path="flow_language_prefs.xml" />
-        <include domain="database" path="flow_database" />
-        <include domain="database" path="flow_database-wal" />
-        <include domain="database" path="flow_database-shm" />
+        <include domain="sharedpref" path="shivaay_language_prefs.xml" />
+        <include domain="database" path="shivaay_database" />
+        <include domain="database" path="shivaay_database-wal" />
+        <include domain="database" path="shivaay_database-shm" />
         <include domain="file" path="datastore/liked_videos.preferences_pb" />
         <include domain="file" path="datastore/subscriptions.preferences_pb" />
         <include domain="file" path="datastore/search_history.preferences_pb" />
@@ -33,11 +33,11 @@
         <include domain="file" path="datastore/favourite_artists.preferences_pb" />
         <include domain="file" path="datastore/saved_playlist_sync.preferences_pb" />
         <include domain="file" path="datastore/watch_later_metadata_migration.preferences_pb" />
-        <include domain="file" path="datastore/flow_recap.preferences_pb" />
-        <include domain="file" path="datastore/flow_recap_images.preferences_pb" />
-        <include domain="file" path="datastore/flow_video_stats_v1.json" />
-        <include domain="file" path="datastore/flow_video_stats_hot_v1.json" />
-        <include domain="file" path="datastore/flow_music_stats_v1.json" />
-        <include domain="file" path="datastore/flow_music_stats_hot_v1.json" />
+        <include domain="file" path="datastore/shivaay_recap.preferences_pb" />
+        <include domain="file" path="datastore/shivaay_recap_images.preferences_pb" />
+        <include domain="file" path="datastore/shivaay_video_stats_v1.json" />
+        <include domain="file" path="datastore/shivaay_video_stats_hot_v1.json" />
+        <include domain="file" path="datastore/shivaay_music_stats_v1.json" />
+        <include domain="file" path="datastore/shivaay_music_stats_hot_v1.json" />
     </device-transfer>
 </data-extraction-rules>

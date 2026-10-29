@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.data.recommendation
+package io.github.shivaay.shivaaytube.data.recommendation
 
 import android.content.Context
 import android.util.Log
@@ -6,7 +6,7 @@ import androidx.work.*
 import java.util.concurrent.TimeUnit
 
 /**
- * WorkManager worker that refreshes the Flow recommendation feed in the background.
+ * WorkManager worker that refreshes the ShivaayTube recommendation feed in the background.
  * Scheduled to run every 4-6 hours to keep recommendations fresh.
  */
 class RecommendationWorker(
@@ -16,7 +16,7 @@ class RecommendationWorker(
     
     companion object {
         private const val TAG = "RecommendationWorker"
-        private const val WORK_NAME = "flow_recommendation_refresh"
+        private const val WORK_NAME = "shivaay_recommendation_refresh"
         
         /**
          * Schedule periodic recommendation refresh.

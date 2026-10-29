@@ -50,11 +50,11 @@ fun translatedLocaleTags(): List<String> =
         .sorted()
 
 android {
-    namespace = "io.github.shivaay.flow"
+    namespace = "io.github.shivaay.shivaaytube"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "io.github.shivaay.flow"
+        applicationId = "io.github.shivaay.shivaaytube"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -66,7 +66,7 @@ android {
         buildConfigField("String", "LASTFM_API_KEY", "\"${secretValue("lastfmApiKey", "lastfm.apiKey", "LASTFM_API_KEY")}\"")
         buildConfigField("String", "LASTFM_API_SECRET", "\"${secretValue("lastfmApiSecret", "lastfm.apiSecret", "LASTFM_API_SECRET")}\"")
 
-        testInstrumentationRunner = "io.github.shivaay.flow.HiltTestRunner"
+        testInstrumentationRunner = "io.github.shivaay.shivaaytube.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -238,7 +238,7 @@ androidComponents {
     onVariants(selector().withBuildType("nightly")) { variant ->
         val run = providers.environmentVariable("GITHUB_RUN_NUMBER").map(String::toInt)
         val sha = providers.environmentVariable("GITHUB_SHA").map { it.take(7) }
-        val base = providers.gradleProperty("flow.nightlyBaseVersion")
+        val base = providers.gradleProperty("shivaaytube.nightlyBaseVersion")
         variant.outputs.forEach { output ->
             val localCode = output.versionCode.get()
             val localName = output.versionName.get()
@@ -331,7 +331,7 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.encoding)
 
-    // --- Device Sync (FLOW-SYNC/1) ---
+    // --- Device Sync (SHIVAAY-SYNC/1) ---
     implementation(libs.ktor.server.core) {
         exclude(group = "org.fusesource.jansi", module = "jansi")
     }

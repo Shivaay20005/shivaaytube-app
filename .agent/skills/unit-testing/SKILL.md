@@ -1,11 +1,11 @@
 ---
 name: unit-testing
-description: Guidelines, patterns, and best practices for writing Kotlin unit tests for ViewModels, Repositories, and Utilities in the Flow Android project.
+description: Guidelines, patterns, and best practices for writing Kotlin unit tests for ViewModels, Repositories, and Utilities in the ShivaayTube Android project.
 ---
 
-# Kotlin Unit Testing Guidelines & Best Practices for Flow
+# Kotlin Unit Testing Guidelines & Best Practices for ShivaayTube
 
-This skill outlines the standards and conventions for writing unit tests in the Flow codebase (`io.github.shivaay.flow`).
+This skill outlines the standards and conventions for writing unit tests in the ShivaayTube codebase (`io.github.shivaay.shivaaytube`).
 
 ## 1. Naming Conventions
 

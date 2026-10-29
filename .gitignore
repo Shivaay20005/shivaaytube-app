@@ -16,7 +16,7 @@ release.keystore
 generate_key.ps1
 generate_key.sh
 generate_key.bat
-flow-website
+shivaaytube-website
 svglogo
 metro*
 release.ps1
@@ -36,7 +36,7 @@ pipepipe
 graphify-out/
 .claude/
 claude.md
-Flow-desktop/
+ShivaayTube-desktop/
 
 # Kotlin compiler session/daemon state
 .kotlin/

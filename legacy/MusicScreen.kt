@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.screens.music
+package io.github.shivaay.shivaaytube.ui.screens.music
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -110,7 +110,7 @@ fun MusicScreen(
                                 }
                             }
                             Text(
-                                text = "Flow Music",
+                                text = "ShivaayTube Music",
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold
                             )

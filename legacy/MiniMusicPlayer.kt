@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.components
+package io.github.shivaay.shivaaytube.ui.components
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
@@ -20,8 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import io.github.shivaay.flow.player.EnhancedMusicPlayerManager
-import io.github.shivaay.flow.ui.screens.music.MusicTrack
+import io.github.shivaay.shivaaytube.player.EnhancedMusicPlayerManager
+import io.github.shivaay.shivaaytube.ui.screens.music.MusicTrack
 
 /**
   mini floating music player with modern design and dismiss functionality

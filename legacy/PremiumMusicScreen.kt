@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.screens.music
+package io.github.shivaay.shivaaytube.ui.screens.music
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import io.github.shivaay.flow.data.search.SearchSuggestionsService
+import io.github.shivaay.shivaaytube.data.search.SearchSuggestionsService
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

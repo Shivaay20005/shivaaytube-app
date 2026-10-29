@@ -17,13 +17,13 @@ permissions:
   contents: read
 
 env:
-  # Certificate of the official Flow release key. IzzyOnDroid and every
+  # Certificate of the official ShivaayTube release key. IzzyOnDroid and every
   # installed client pin this value; an APK signed with anything else cannot
   # be installed as an update. Changing it forces every user to reinstall.
-  EXPECTED_SIGNER_SHA256: 4322294ed4caa2d4294140095818080ffe8acc1fbe3cdc76107df45c5286be40
+  EXPECTED_SIGNER_SHA256: 4b811e3534f96f2cc18194dfcf515ae165c188387b5d551d6a0e569e50716ce2
   # Certificate of the nightly key. Every nightly must carry it so each one
   # installs over the previous nightly without an uninstall.
-  EXPECTED_NIGHTLY_SIGNER_SHA256: e42225b5ab3ac68236e54567ef0c4878afbafcdd3d438fbaba343e2d70425bf0
+  EXPECTED_NIGHTLY_SIGNER_SHA256: 4b811e3534f96f2cc18194dfcf515ae165c188387b5d551d6a0e569e50716ce2
 
 # checks, tests, lint and build run on separate runners at the same time, and
 # both publish jobs wait for all four. The CI Gradle properties replace the
@@ -189,6 +189,11 @@ jobs:
             echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > release.keystore
             echo "signed=true" >> "$GITHUB_OUTPUT"
             echo "Release keystore decoded."
+          elif [ -f release.keystore ]; then
+            # Private repo: a committed keystore gives every build the same
+            # signature so installed clients can always update.
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+            echo "Using the committed release keystore."
           elif [ "${GITHUB_REF#refs/tags/v}" != "$GITHUB_REF" ]; then
             # A tag build publishes to GitHub Releases and IzzyOnDroid. Without
             # the keystore, app/build.gradle.kts falls back to signingConfig =
@@ -210,6 +215,12 @@ jobs:
           if [ -n "$NIGHTLY_KEYSTORE_BASE64" ]; then
             echo "$NIGHTLY_KEYSTORE_BASE64" | base64 --decode > nightly.keystore
             echo "signed=true" >> "$GITHUB_OUTPUT"
+          elif [ -f release.keystore ]; then
+            # Same long-lived key as release, so nightlies keep a stable
+            # signature and every nightly installs over the previous one.
+            cp release.keystore nightly.keystore
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+            echo "Using the committed release keystore for the nightly."
           elif [ "${{ github.event_name }}" = "push" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
             # Main publishes the nightly testers install; a debug-signed build
             # could not update the previous one.
@@ -228,12 +239,12 @@ jobs:
           ./gradlew :app:assembleGithubNightly :app:assembleFossRelease
           --build-cache --stacktrace
         env:
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          NIGHTLY_STORE_PASSWORD: ${{ secrets.NIGHTLY_STORE_PASSWORD }}
-          NIGHTLY_KEY_ALIAS: ${{ secrets.NIGHTLY_KEY_ALIAS }}
-          NIGHTLY_KEY_PASSWORD: ${{ secrets.NIGHTLY_KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD || 'shivaaytube' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'shivaaytube' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'shivaaytube' }}
+          NIGHTLY_STORE_PASSWORD: ${{ secrets.NIGHTLY_STORE_PASSWORD || 'shivaaytube' }}
+          NIGHTLY_KEY_ALIAS: ${{ secrets.NIGHTLY_KEY_ALIAS || 'shivaaytube' }}
+          NIGHTLY_KEY_PASSWORD: ${{ secrets.NIGHTLY_KEY_PASSWORD || 'shivaaytube' }}
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
           LASTFM_API_SECRET: ${{ secrets.LASTFM_API_SECRET }}
 
@@ -243,9 +254,9 @@ jobs:
           ./gradlew :app:assembleGithubRelease :app:assembleFossRelease
           --build-cache --stacktrace
         env:
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD || 'shivaaytube' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'shivaaytube' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'shivaaytube' }}
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
           LASTFM_API_SECRET: ${{ secrets.LASTFM_API_SECRET }}
 
@@ -316,8 +327,8 @@ jobs:
             echo "OK nightly -> $actual"
           fi
           mkdir -p dist-nightly
-          cp "$src" "dist-nightly/flow-nightly-${GITHUB_RUN_NUMBER}.apk"
-          (cd dist-nightly && sha256sum flow-nightly-*.apk | tee checksums.txt)
+          cp "$src" "dist-nightly/shivaaytube-nightly-${GITHUB_RUN_NUMBER}.apk"
+          (cd dist-nightly && sha256sum shivaaytube-nightly-*.apk | tee checksums.txt)
 
       - name: Report individual APK sizes
         shell: bash
@@ -362,7 +373,7 @@ jobs:
           foss_limit=29500000
           foss_bytes=$(stat --format='%s' app/build/outputs/apk/foss/release/app-foss-universal-release*.apk)
           if (( foss_bytes > foss_limit )); then
-            printf 'flow-foss.apk is %d bytes, over the %d byte budget.\n' "$foss_bytes" "$foss_limit" >&2
+            printf 'shivaaytube-foss.apk is %d bytes, over the %d byte budget.\n' "$foss_bytes" "$foss_limit" >&2
             exit 1
           fi
 
@@ -371,7 +382,7 @@ jobs:
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         uses: actions/upload-artifact@v7
         with:
-          name: flow-github-universal-release-apk
+          name: shivaaytube-github-universal-release-apk
           path: app/build/outputs/apk/github/release/app-github-universal-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -381,7 +392,7 @@ jobs:
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         uses: actions/upload-artifact@v7
         with:
-          name: flow-github-arm64-release-apk
+          name: shivaaytube-github-arm64-release-apk
           path: app/build/outputs/apk/github/release/app-github-arm64-v8a-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -391,7 +402,7 @@ jobs:
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         uses: actions/upload-artifact@v7
         with:
-          name: flow-github-armeabi-v7a-release-apk
+          name: shivaaytube-github-armeabi-v7a-release-apk
           path: app/build/outputs/apk/github/release/app-github-armeabi-v7a-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -401,7 +412,7 @@ jobs:
         if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
         uses: actions/upload-artifact@v7
         with:
-          name: flow-nightly-apk
+          name: shivaaytube-nightly-apk
           path: dist-nightly/*
           if-no-files-found: error
           retention-days: 14
@@ -409,7 +420,7 @@ jobs:
       - name: Upload FOSS universal APK
         uses: actions/upload-artifact@v7
         with:
-          name: flow-foss-universal-release-apk
+          name: shivaaytube-foss-universal-release-apk
           path: app/build/outputs/apk/foss/release/app-foss-universal-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -418,7 +429,7 @@ jobs:
       - name: Upload FOSS ARM64 APK
         uses: actions/upload-artifact@v7
         with:
-          name: flow-foss-arm64-release-apk
+          name: shivaaytube-foss-arm64-release-apk
           path: app/build/outputs/apk/foss/release/app-foss-arm64-v8a-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -427,7 +438,7 @@ jobs:
       - name: Upload FOSS ARMv7 APK
         uses: actions/upload-artifact@v7
         with:
-          name: flow-foss-armeabi-v7a-release-apk
+          name: shivaaytube-foss-armeabi-v7a-release-apk
           path: app/build/outputs/apk/foss/release/app-foss-armeabi-v7a-release*.apk
           if-no-files-found: error
           retention-days: 14
@@ -438,7 +449,7 @@ jobs:
       - name: Upload R8 mappings
         uses: actions/upload-artifact@v7
         with:
-          name: flow-r8-mappings
+          name: shivaaytube-r8-mappings
           path: app/build/outputs/mapping/*/mapping.txt
           if-no-files-found: warn
           retention-days: 90
@@ -470,7 +481,7 @@ jobs:
       - name: Download nightly APK
         uses: actions/download-artifact@v8
         with:
-          name: flow-nightly-apk
+          name: shivaaytube-nightly-apk
           path: dist-nightly/
 
       - name: Move the nightly tag and replace its assets
@@ -479,13 +490,13 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          apk="flow-nightly-${GITHUB_RUN_NUMBER}.apk"
+          apk="shivaaytube-nightly-${GITHUB_RUN_NUMBER}.apk"
           test -f "dist-nightly/$apk"
           if gh release view nightly >/dev/null 2>&1; then
             gh api -X PATCH "repos/$GH_REPO/git/refs/tags/nightly" -f sha="$GITHUB_SHA" -F force=true >/dev/null
           else
             gh release create nightly --target "$GITHUB_SHA" --prerelease --latest=false \
-              --title "Flow nightly" --notes "Rolling nightly build."
+              --title "ShivaayTube nightly" --notes "Rolling nightly build."
           fi
           gh release upload nightly "dist-nightly/$apk" dist-nightly/checksums.txt --clobber
           for old in $(gh release view nightly --json assets --jq '.assets[].name'); do
@@ -494,10 +505,10 @@ jobs:
             fi
           done
           python3 .github/scripts/nightly_notes.py \
-            --intro "Built from ${GITHUB_SHA::7} by run ${GITHUB_RUN_NUMBER}. Installs next to the stable app as Flow Nightly and updates itself from here." \
+            --intro "Built from ${GITHUB_SHA::7} by run ${GITHUB_RUN_NUMBER}. Installs next to the stable app as ShivaayTube Nightly and updates itself from here." \
             > nightly-body.md
           gh release edit nightly --prerelease --latest=false \
-            --title "Flow nightly ${GITHUB_RUN_NUMBER}" \
+            --title "ShivaayTube nightly ${GITHUB_RUN_NUMBER}" \
             --notes-file nightly-body.md
 
   release:
@@ -516,28 +527,28 @@ jobs:
       - name: Download release APKs
         uses: actions/download-artifact@v8
         with:
-          pattern: flow-*-release-apk
+          pattern: shivaaytube-*-release-apk
           path: dist/
           merge-multiple: true
 
-      # flow.apk and flow-foss.apk are the universal builds and are a public
+      # shivaaytube.apk and shivaaytube-foss.apk are the universal builds and are a public
       # contract: IzzyOnDroid matches release assets by file name, and the
       # README links to them directly. Do not rename or drop them without
-      # first updating the IzzyOnDroid entry for io.github.aedev.flow.
+      # first updating the IzzyOnDroid entry for io.github.shivaay.shivaaytube.
       - name: Rename APKs for release
         run: |
           set -euo pipefail
-          mv dist/app-github-universal-release.apk   dist/flow.apk
-          mv dist/app-foss-universal-release.apk     dist/flow-foss.apk
-          mv dist/app-github-arm64-v8a-release.apk   dist/flow-arm64-v8a.apk
-          mv dist/app-github-armeabi-v7a-release.apk dist/flow-armeabi-v7a.apk
-          mv dist/app-foss-arm64-v8a-release.apk     dist/flow-foss-arm64-v8a.apk
-          mv dist/app-foss-armeabi-v7a-release.apk   dist/flow-foss-armeabi-v7a.apk
+          mv dist/app-github-universal-release.apk   dist/shivaaytube.apk
+          mv dist/app-foss-universal-release.apk     dist/shivaaytube-foss.apk
+          mv dist/app-github-arm64-v8a-release.apk   dist/shivaaytube-arm64-v8a.apk
+          mv dist/app-github-armeabi-v7a-release.apk dist/shivaaytube-armeabi-v7a.apk
+          mv dist/app-foss-arm64-v8a-release.apk     dist/shivaaytube-foss-arm64-v8a.apk
+          mv dist/app-foss-armeabi-v7a-release.apk   dist/shivaaytube-foss-armeabi-v7a.apk
 
       - name: Generate checksums
         run: |
           cd dist
-          sha256sum flow*.apk > checksums.txt
+          sha256sum shivaaytube*.apk > checksums.txt
           cat checksums.txt
 
       - name: Get version from tag
@@ -549,22 +560,22 @@ jobs:
           RELEASE_VERSION: ${{ steps.get_version.outputs.VERSION }}
         run: |
           test -s release-notes.md
-          grep -Fqx "# Flow ${RELEASE_VERSION}" release-notes.md
+          grep -Fqx "# ShivaayTube ${RELEASE_VERSION}" release-notes.md
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.get_version.outputs.VERSION }}
-          name: Flow ${{ steps.get_version.outputs.VERSION }}
+          name: ShivaayTube ${{ steps.get_version.outputs.VERSION }}
           body_path: release-notes.md
           generate_release_notes: false
           files: |
-            dist/flow.apk
-            dist/flow-foss.apk
-            dist/flow-arm64-v8a.apk
-            dist/flow-armeabi-v7a.apk
-            dist/flow-foss-arm64-v8a.apk
-            dist/flow-foss-armeabi-v7a.apk
+            dist/shivaaytube.apk
+            dist/shivaaytube-foss.apk
+            dist/shivaaytube-arm64-v8a.apk
+            dist/shivaaytube-armeabi-v7a.apk
+            dist/shivaaytube-foss-arm64-v8a.apk
+            dist/shivaaytube-foss-armeabi-v7a.apk
             dist/checksums.txt
           draft: false
           prerelease: false

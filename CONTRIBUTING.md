@@ -1,11 +1,11 @@
-# Contributing to Flow
+# Contributing to ShivaayTube
 
-Thank you for your interest in contributing to Flow! We welcome contributions from the community.
+Thank you for your interest in contributing to ShivaayTube! We welcome contributions from the community.
 
-Flow (`io.github.shivaay.flow`) is an Android music/video app written in Kotlin with Jetpack Compose,
+ShivaayTube (`io.github.shivaay.shivaaytube`) is an Android music/video app written in Kotlin with Jetpack Compose,
 Hilt, and Media3/ExoPlayer. It plays YouTube content via a native InnerTube client with a
 NewPipe-based fallback extraction path, and supports local media playback, offline downloads,
-casting, lyrics, device-to-device sync, and an on-device recommendation engine (FlowNeuroEngine).
+casting, lyrics, device-to-device sync, and an on-device recommendation engine (ShivaayNeuroEngine).
 
 **Read this file before opening a pull request.** Most review round-trips on this project come from
 one of the rules below, not from the feature itself. `AGENTS.md` in the repository root carries the
@@ -14,7 +14,7 @@ AI assistant, point it at `AGENTS.md`.
 
 ## ❓ Asking Questions About the Codebase
 
-**Use [GitHub Discussions](https://github.com/Flow-Tube/Flow/discussions) — that is the right place, and
+**Use [GitHub Discussions](https://github.com/Shivaay20005/shivaaytube-app/discussions) — that is the right place, and
 questions are welcome.** The codebase is deliberately light on comments (see "Comments" below), so
 asking is expected rather than a sign you missed something.
 
@@ -55,11 +55,10 @@ Feature suggestions are welcome! Please:
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/Flow.git
-cd Flow
+git clone https://github.com/Shivaay20005/shivaaytube-app.git
+cd shivaaytube-app
 
 # Add upstream remote
-git remote add upstream https://github.com/Flow-Tube/Flow.git
 
 # Create a feature branch
 git checkout -b feature/your-feature-name
@@ -69,7 +68,7 @@ Always pull the latest `main` before starting work, to minimize merge conflicts.
 
 ### Product Flavors
 
-Flow builds two flavors: `github` (default, in-app updater enabled) and `foss` (no updater).
+ShivaayTube builds two flavors: `github` (default, in-app updater enabled) and `foss` (no updater).
 **Always use flavor-prefixed Gradle tasks** — `assembleGithubDebug`, `compileFossDebugKotlin` —
 never bare `assembleDebug` or `compileDebugKotlin`.
 
@@ -129,8 +128,8 @@ maintained implementation is on the classpath.
 Before writing any component, effect, animation, formatter, parser, scheduler, or player behaviour:
 
 1. **Check what the app already has.** Read `ui/components/shared/` and `utils/`. The commonest
-   waste is re-implementing something this codebase already exports — `FlowEmptyState`,
-   `FlowErrorState`, `MediaRow`, `MediaThumbnail`, `MediaBadges`, `FlowSearchField`,
+   waste is re-implementing something this codebase already exports — `ShivaayEmptyState`,
+   `ShivaayErrorState`, `MediaRow`, `MediaThumbnail`, `MediaBadges`, `ShivaaySearchField`,
    `ShimmerLoading`, and `FastScrollbar` all exist already.
 2. **Check the version catalog.** `gradle/libs.versions.toml` is the list of what is available.
 3. **Check the actual artifact, not your memory.** The app is on alpha Compose/M3; confirm against
@@ -195,7 +194,7 @@ than one feature uses it, and duplicate no behaviour the library already provide
 
 ## ⚡ Performance, Battery, and Thermals — Non-Negotiable
 
-Flow is a media player that runs for hours at a time. Jank, dropped frames, playback stutter, device
+ShivaayTube is a media player that runs for hours at a time. Jank, dropped frames, playback stutter, device
 heat, and battery drain are **critical bugs, not cosmetic issues**. Every rule below is anchored in a
 real shipped regression that had to be found and fixed on-device.
 
@@ -264,7 +263,7 @@ real shipped regression that had to be found and fixed on-device.
 13. Sustained heat while the app is open = per-frame work; drain with the screen off = CPU/network
     loops. Diagnose in that order: (a) run the rule-2 audit over every composed-but-hidden tree;
     (b) count fetches per user action in logcat — any unexplained second fetch is the bug;
-    (c) check `adb shell dumpsys gfxinfo io.github.shivaay.flow` for continuous frame production while
+    (c) check `adb shell dumpsys gfxinfo io.github.shivaay.shivaaytube` for continuous frame production while
     the UI should be idle; (d) only then suspect the player path. Do not "fix" heat by degrading
     visible design, motion, or update smoothness — find the invisible work instead.
 
@@ -355,8 +354,8 @@ Split by **responsibility**, never by line count:
 
 ### Naming conventions (already in force — match them)
 
-- `shared/` primitives with no domain meaning take the **`Flow`** prefix: `FlowFilterChip`,
-  `FlowSearchField`, `FlowEmptyState`, `FlowLoadingIndicator`.
+- `shared/` primitives with no domain meaning take the **`Shivaay`** prefix: `ShivaayFilterChip`,
+  `ShivaaySearchField`, `ShivaayEmptyState`, `ShivaayLoadingIndicator`.
 - `shared/` components in the media vocabulary take the **`Media`** prefix: `MediaRow`,
   `MediaThumbnail`, `MediaBadges`, `MediaKindSelector`.
 - Feature components take the **feature** prefix: `LibraryShelf`, `MusicTrackItem`,
@@ -407,7 +406,7 @@ empty/error states, badges, formatters, or a second copy of a `shared/` componen
 
 ### Dependency injection
 
-Flow uses Hilt, but some legacy app-owned classes are still reached through static `getInstance()`
+ShivaayTube uses Hilt, but some legacy app-owned classes are still reached through static `getInstance()`
 calls. Treat those as migration debt, not as a pattern to copy.
 
 1. **Use constructor injection by default** for new ViewModels, repositories, use cases, workers,
@@ -447,7 +446,7 @@ All user-facing strings **must** be declared in `app/src/main/res/values/strings
 via `stringResource(R.string.xxx)` (or `context.getString(...)` outside Compose) — never inline
 string literals in UI code. Add the string to `strings.xml` first, then reference it.
 
-**Do not touch other locales' `strings.xml` files.** Translations are managed through Weblate; edit
+**Do not touch other locales' `strings.xml` files.** Translations live in this repo; edit
 only the default (English) resource file.
 
 ## 🚫 Hard Don'ts
@@ -455,7 +454,7 @@ only the default (English) resource file.
 1. **Do not edit the Room database schema** without agreeing it first — schema changes require a
    version bump and a migration, handled deliberately.
 2. **Do not bump the app version** in any file. Version bumps are done by the project owner.
-3. **Do not touch non-English `strings.xml`** files (Weblate owns them).
+3. **Do not touch non-English `strings.xml`** files (keep keys in sync with values/strings.xml).
 4. **Do not regenerate the baseline profile** for routine feature or UI work. It is a ~20 minute run
    on a physical device and produces thousands of lines of churn. It is regenerated when the
    cold-start path changes, when the generator's journeys change, or before a release.
@@ -564,8 +563,8 @@ bump takes three times as long to review and is three times as likely to be reve
 
 ## 🔐 Release and Signing Invariants
 
-Flow is distributed through GitHub Releases and
-[IzzyOnDroid](https://apt.izzysoft.de/packages/io.github.shivaay.flow). Both pin properties of the
+ShivaayTube is distributed through GitHub Releases and
+[IzzyOnDroid](https://apt.izzysoft.de/packages/io.github.shivaay.shivaaytube). Both pin properties of the
 published artifacts, so the following are hard constraints. Breaking one of them cannot be fixed by a
 follow-up release — it forces every installed user to uninstall and reinstall, losing their local
 data.
@@ -578,7 +577,7 @@ refuses to install an update signed by a different key. CI enforces this in the
 `KEY_PASSWORD` repository secrets.
 
 **Release asset file names are a public contract.** IzzyOnDroid matches release assets by file name.
-`flow.apk` and `flow-foss.apk` are the universal builds and must keep those exact names. The per-ABI
+`shivaaytube.apk` and `shivaaytube-foss.apk` are the universal builds and must keep those exact names. The per-ABI
 APKs are published alongside them as extras. Renaming or removing either universal APK silently
 breaks the IzzyOnDroid update feed, so coordinate with IzzyOnDroid before changing them.
 
@@ -597,7 +596,7 @@ a `v*` tag build when the keystore secret is missing rather than publishing them
 - [ ] Performance optimization
 - [ ] Bug fixes
 - [ ] Accessibility features
-- [ ] Translations (via [Weblate](https://hosted.weblate.org/engage/flow/), not by editing
+- [ ] Translations (via by editing
       locale files directly)
 
 ## 📜 Code of Conduct
@@ -610,14 +609,14 @@ a `v*` tag build when the keystore secret is missing rather than publishing them
 
 ## ❓ Questions?
 
-- Open a [discussion](https://github.com/Flow-Tube/Flow/discussions) — including questions about how the
+- Open a [discussion](https://github.com/Shivaay20005/shivaaytube-app/discussions) — including questions about how the
   codebase works
 - Comment on existing issues
 - Reach out to maintainers
 
 ## 🙏 Thank You!
 
-Every contribution helps make Flow better. Thank you for being part of the community!
+Every contribution helps make ShivaayTube better. Thank you for being part of the community!
 
 ---
 

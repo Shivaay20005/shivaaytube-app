@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.screens.explore
+package io.github.shivaay.shivaaytube.ui.screens.explore
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,12 +20,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import io.github.shivaay.flow.data.model.Video
-import io.github.shivaay.flow.ui.components.VideoCard
-import io.github.shivaay.flow.ui.components.ShimmerVideoCard
-import io.github.shivaay.flow.ui.theme.extendedColors
-import io.github.shivaay.flow.utils.formatDuration
-import io.github.shivaay.flow.utils.formatViewCount
+import io.github.shivaay.shivaaytube.data.model.Video
+import io.github.shivaay.shivaaytube.ui.components.VideoCard
+import io.github.shivaay.shivaaytube.ui.components.ShimmerVideoCard
+import io.github.shivaay.shivaaytube.ui.theme.extendedColors
+import io.github.shivaay.shivaaytube.utils.formatDuration
+import io.github.shivaay.shivaaytube.utils.formatViewCount
 
 @Composable
 fun ExploreScreen(

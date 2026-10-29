@@ -6,12 +6,12 @@
 
     <application>
         <activity
-            android:name="io.github.shivaay.flow.discord.DiscordLoginActivity"
+            android:name="io.github.shivaay.shivaaytube.discord.DiscordLoginActivity"
             android:exported="false"
             android:theme="@style/Theme.Flow" />
 
         <receiver
-            android:name="io.github.shivaay.flow.updater.UpdateInstallReceiver"
+            android:name="io.github.shivaay.shivaaytube.updater.UpdateInstallReceiver"
             android:exported="false" />
 
         <service

@@ -17,8 +17,8 @@ Always update to the newest release before reporting a security issue.
 **Do not report security vulnerabilities through public GitHub issues.**
 
 Report privately through
-[GitHub Security Advisories](https://github.com/Flow-Tube/Flow/security/advisories/new).
-If you cannot use that form, email <contact@flow-tube.org>.
+[GitHub Security Advisories](https://github.com/Shivaay20005/shivaaytube-app/security/advisories/new).
+If you cannot use that form, email <contact@github.com/Shivaay20005/shivaaytube-app>.
 
 Please include:
 
@@ -53,6 +53,6 @@ The reported `Signer #1 certificate SHA-256 digest` must equal the fingerprint
 above (lower case, without colons).
 
 Official distribution channels are the
-[GitHub Releases page](https://github.com/Flow-Tube/Flow/releases) and
-[IzzyOnDroid](https://apt.izzysoft.de/packages/io.github.shivaay.flow). Builds
+[GitHub Releases page](https://github.com/Shivaay20005/shivaaytube-app/releases) and
+[IzzyOnDroid](https://apt.izzysoft.de/packages/io.github.shivaay.shivaaytube). Builds
 obtained anywhere else are unverified.

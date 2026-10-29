@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.data.recommendation
+package io.github.shivaay.shivaaytube.data.recommendation
 
 import android.content.Context
 import android.util.Log
@@ -8,16 +8,16 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import io.github.shivaay.flow.data.local.ChannelSubscription
-import io.github.shivaay.flow.data.local.LikedVideoInfo
-import io.github.shivaay.flow.data.local.LikedVideosRepository
-import io.github.shivaay.flow.data.local.PlaylistRepository
-import io.github.shivaay.flow.data.local.SearchHistoryRepository
-import io.github.shivaay.flow.data.local.SubscriptionRepository
-import io.github.shivaay.flow.data.local.VideoHistoryEntry
-import io.github.shivaay.flow.data.local.ViewHistory
-import io.github.shivaay.flow.data.model.Video
-import io.github.shivaay.flow.data.repository.YouTubeRepository
+import io.github.shivaay.shivaaytube.data.local.ChannelSubscription
+import io.github.shivaay.shivaaytube.data.local.LikedVideoInfo
+import io.github.shivaay.shivaaytube.data.local.LikedVideosRepository
+import io.github.shivaay.shivaaytube.data.local.PlaylistRepository
+import io.github.shivaay.shivaaytube.data.local.SearchHistoryRepository
+import io.github.shivaay.shivaaytube.data.local.SubscriptionRepository
+import io.github.shivaay.shivaaytube.data.local.VideoHistoryEntry
+import io.github.shivaay.shivaaytube.data.local.ViewHistory
+import io.github.shivaay.shivaaytube.data.model.Video
+import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -25,12 +25,12 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.ShivaayTube
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-private val Context.recommendationDataStore: DataStore<Preferences> by preferencesDataStore(name = "flow_recommendations")
+private val Context.recommendationDataStore: DataStore<Preferences> by preferencesDataStore(name = "shivaay_recommendations")
 
 /**
  * Enhanced Recommendation Repository
@@ -104,7 +104,7 @@ class RecommendationRepository private constructor(private val context: Context)
     /**
      * Get the cached recommendation feed
      */
-    fun getCachedFeed(): Flow<List<ScoredVideo>> {
+    fun getCachedFeed(): ShivaayTube<List<ScoredVideo>> {
         return context.recommendationDataStore.data.map { preferences ->
             val json = preferences[CACHED_FEED_KEY] ?: return@map emptyList()
             try {
@@ -131,7 +131,7 @@ class RecommendationRepository private constructor(private val context: Context)
     /**
      * Get last refresh timestamp
      */
-    fun getLastRefreshTime(): Flow<Long> {
+    fun getLastRefreshTime(): ShivaayTube<Long> {
         return context.recommendationDataStore.data.map { preferences ->
             preferences[LAST_REFRESH_KEY] ?: 0L
         }
@@ -258,7 +258,7 @@ class RecommendationRepository private constructor(private val context: Context)
             // =====================
             val allRelatedVideos = fetchResults.relatedFromHistory + fetchResults.relatedFromLiked
             
-            val candidates = FlowAlgorithmV2.mergeAndDeduplicate(
+            val candidates = ShivaayAlgorithmV2.mergeAndDeduplicate(
                 subscriptionVideos = fetchResults.subscriptionVideos,
                 relatedVideos = allRelatedVideos,
                 searchInterestVideos = fetchResults.searchVideos,
@@ -298,7 +298,7 @@ class RecommendationRepository private constructor(private val context: Context)
             val watchHistoryMap = watchHistory.associate { it.videoId to it.timestamp }
             val searchInterestVideoIds = fetchResults.searchVideos.map { it.id }.toSet()
             
-            val ranked = FlowAlgorithmV2.scoreAndRank(
+            val ranked = ShivaayAlgorithmV2.scoreAndRank(
                 context = context,
                 candidates = finalCandidates,
                 subscriptionChannelIds = subscriptionChannelIds,
@@ -310,7 +310,7 @@ class RecommendationRepository private constructor(private val context: Context)
             // =====================
             // 7. LIGHT SHUFFLE FOR VARIETY
             // =====================
-            val shuffled = FlowAlgorithmV2.lightShuffle(ranked)
+            val shuffled = ShivaayAlgorithmV2.lightShuffle(ranked)
             
             // =====================
             // 8. CACHE RESULTS

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.shivaay.flow.benchmark"
+    namespace = "io.github.shivaay.shivaaytube.benchmark"
     compileSdk = 37
 
     compileOptions {

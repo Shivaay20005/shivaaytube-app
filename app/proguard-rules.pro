@@ -48,28 +48,28 @@
 }
 
 ## Keep data models and serialization structures
--keep class io.github.shivaay.flow.data.model.** { *; }
--keep class io.github.shivaay.flow.data.local.** { *; }
--keep class io.github.shivaay.flow.data.lyrics.** { *; }
--keep class io.github.shivaay.flow.innertube.models.** { *; }
+-keep class io.github.shivaay.shivaaytube.data.model.** { *; }
+-keep class io.github.shivaay.shivaaytube.data.local.** { *; }
+-keep class io.github.shivaay.shivaaytube.data.lyrics.** { *; }
+-keep class io.github.shivaay.shivaaytube.innertube.models.** { *; }
 
 ## Gson-persisted models that live OUTSIDE the packages above (issue #996): without an
 ## explicit keep, R8 may strip the generic Signature of MusicTrack.artists, and cached
 ## history/queues then deserialize artist entries as LinkedTreeMaps that crash the music
 ## feed with a ClassCastException on first access. Any new Gson-persisted model must be
 ## added here (or live in a kept package), whatever package it renders from.
--keep class io.github.shivaay.flow.ui.screens.music.MusicTrack { *; }
--keep class io.github.shivaay.flow.ui.screens.music.MusicArtist { *; }
--keep class io.github.shivaay.flow.ui.screens.music.MusicItemType { *; }
--keep class io.github.shivaay.flow.data.music.Playlist { *; }
--keep class io.github.shivaay.flow.data.music.DownloadedTrack { *; }
--keep class io.github.shivaay.flow.data.music.DownloadStatus { *; }
+-keep class io.github.shivaay.shivaaytube.ui.screens.music.MusicTrack { *; }
+-keep class io.github.shivaay.shivaaytube.ui.screens.music.MusicArtist { *; }
+-keep class io.github.shivaay.shivaaytube.ui.screens.music.MusicItemType { *; }
+-keep class io.github.shivaay.shivaaytube.data.music.Playlist { *; }
+-keep class io.github.shivaay.shivaaytube.data.music.DownloadedTrack { *; }
+-keep class io.github.shivaay.shivaaytube.data.music.DownloadStatus { *; }
 
 ## Shazam recognition models + kotlinx serializers
--keepclasseswithmembers class io.github.shivaay.flow.data.recognition.shazam.** {
+-keepclasseswithmembers class io.github.shivaay.shivaaytube.data.recognition.shazam.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
--keepclassmembers class io.github.shivaay.flow.data.recognition.shazam.** {
+-keepclassmembers class io.github.shivaay.shivaaytube.data.recognition.shazam.** {
     *** Companion;
 }
 

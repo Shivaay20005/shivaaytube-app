@@ -1,4 +1,4 @@
-package io.github.shivaay.flow.ui.screens.player
+package io.github.shivaay.shivaaytube.ui.screens.player
 
 import android.app.Activity
 import android.content.pm.ActivityInfo
@@ -44,12 +44,12 @@ import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.exoplayer.source.SingleSampleMediaSource
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
-import io.github.shivaay.flow.data.local.VideoQuality
-import io.github.shivaay.flow.data.model.Video
-import io.github.shivaay.flow.player.GlobalPlayerState
-import io.github.shivaay.flow.player.PictureInPictureHelper
-import io.github.shivaay.flow.ui.components.VideoCardFullWidth
-import io.github.shivaay.flow.ui.theme.extendedColors
+import io.github.shivaay.shivaaytube.data.local.VideoQuality
+import io.github.shivaay.shivaaytube.data.model.Video
+import io.github.shivaay.shivaaytube.player.GlobalPlayerState
+import io.github.shivaay.shivaaytube.player.PictureInPictureHelper
+import io.github.shivaay.shivaaytube.ui.components.VideoCardFullWidth
+import io.github.shivaay.shivaaytube.ui.theme.extendedColors
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.take
 import kotlin.math.abs
