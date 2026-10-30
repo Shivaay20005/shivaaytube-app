@@ -42,11 +42,11 @@ import io.github.shivaay.shivaaytube.data.localmedia.LocalMediaItem
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
 import io.github.shivaay.shivaaytube.ui.components.library.LibrarySelection
 import io.github.shivaay.shivaaytube.ui.components.library.libraryGridLayoutFor
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnailDefaults
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayPullToRefreshBox
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySegmentedGap
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnailDefaults
 import io.github.shivaay.shivaaytube.ui.components.shared.animateMediaGridItem
 
 private val GridSpacing = 12.dp

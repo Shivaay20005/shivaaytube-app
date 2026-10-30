@@ -20,13 +20,13 @@ import kotlinx.coroutines.launch
 object DeepShivaayManager {
     private enum class DisableReason {
         Manual,
-        Timer
+        Timer,
     }
 
     private data class DeepShivaaySnapshot(
         val active: Boolean,
         val activatedAt: Long,
-        val expireHours: Int
+        val expireHours: Int,
     )
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -47,39 +47,40 @@ object DeepShivaayManager {
         observerJob?.cancel()
 
         val preferences = PlayerPreferences(appContext)
-        observerJob = scope.launch {
-            combine(
-                preferences.deepShivaayActive,
-                preferences.deepShivaayActivatedAt,
-                preferences.deepShivaayExpireHours
-            ) { active, activatedAt, expireHours ->
-                DeepShivaaySnapshot(active, activatedAt, expireHours)
-            }.collectLatest { snapshot ->
-                val previousActive = lastKnownActive
-                if (previousActive != null && previousActive != snapshot.active) {
-                    pauseCurrentVideoIfNeeded()
-                    _messages.emit(appContext.deepShivaayMessage(snapshot.active, pendingDisableReason))
-                    pendingDisableReason = null
-                }
-                lastKnownActive = snapshot.active
+        observerJob =
+            scope.launch {
+                combine(
+                    preferences.deepShivaayActive,
+                    preferences.deepShivaayActivatedAt,
+                    preferences.deepShivaayExpireHours,
+                ) { active, activatedAt, expireHours ->
+                    DeepShivaaySnapshot(active, activatedAt, expireHours)
+                }.collectLatest { snapshot ->
+                    val previousActive = lastKnownActive
+                    if (previousActive != null && previousActive != snapshot.active) {
+                        pauseCurrentVideoIfNeeded()
+                        _messages.emit(appContext.deepShivaayMessage(snapshot.active, pendingDisableReason))
+                        pendingDisableReason = null
+                    }
+                    lastKnownActive = snapshot.active
 
-                if (!snapshot.active || snapshot.activatedAt == 0L || snapshot.expireHours == DEEP_FLOW_NEVER_EXPIRES_HOURS) {
-                    return@collectLatest
-                }
+                    if (!snapshot.active || snapshot.activatedAt == 0L || snapshot.expireHours == DEEP_FLOW_NEVER_EXPIRES_HOURS) {
+                        return@collectLatest
+                    }
 
-                val expiresAt = snapshot.activatedAt + snapshot.expireHours * 3_600_000L
-                val remainingMs = expiresAt - System.currentTimeMillis()
-                if (remainingMs <= 0L) {
+                    val expiresAt = snapshot.activatedAt + snapshot.expireHours * 3_600_000L
+                    val remainingMs = expiresAt - System.currentTimeMillis()
+                    if (remainingMs <= 0L) {
+                        pendingDisableReason = DisableReason.Timer
+                        preferences.setDeepShivaayActive(false)
+                        return@collectLatest
+                    }
+
+                    delay(remainingMs)
                     pendingDisableReason = DisableReason.Timer
                     preferences.setDeepShivaayActive(false)
-                    return@collectLatest
                 }
-
-                delay(remainingMs)
-                pendingDisableReason = DisableReason.Timer
-                preferences.setDeepShivaayActive(false)
             }
-        }
     }
 
     suspend fun toggle(context: Context): Boolean {
@@ -89,7 +90,10 @@ object DeepShivaayManager {
         return nextEnabled
     }
 
-    suspend fun setEnabled(context: Context, enabled: Boolean): Boolean {
+    suspend fun setEnabled(
+        context: Context,
+        enabled: Boolean,
+    ): Boolean {
         val preferences = PlayerPreferences(context.applicationContext)
         val currentEnabled = preferences.deepShivaayActive.first()
         if (currentEnabled == enabled) return enabled
@@ -109,11 +113,13 @@ object DeepShivaayManager {
         }
     }
 
-    private fun Context.deepShivaayMessage(active: Boolean, disableReason: DisableReason?): String {
-        return when {
+    private fun Context.deepShivaayMessage(
+        active: Boolean,
+        disableReason: DisableReason?,
+    ): String =
+        when {
             active -> getString(R.string.deep_shivaay_enabled_message)
             disableReason == DisableReason.Timer -> getString(R.string.deep_shivaay_expired_message)
             else -> getString(R.string.deep_shivaay_disabled_message)
         }
-    }
 }

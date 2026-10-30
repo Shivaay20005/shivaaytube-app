@@ -35,14 +35,14 @@ import io.github.shivaay.shivaaytube.player.GlobalPlayerState
 import io.github.shivaay.shivaaytube.player.SleepTimerManager
 import io.github.shivaay.shivaaytube.ui.components.donation.DonationPromptHost
 import io.github.shivaay.shivaaytube.ui.components.equalizer.LocalEqualizerState
-import io.github.shivaay.shivaaytube.ui.components.layout.ShivaayBottomInsets
 import io.github.shivaay.shivaaytube.ui.components.layout.LocalShivaayBottomInsets
+import io.github.shivaay.shivaaytube.ui.components.layout.ShivaayBottomInsets
+import io.github.shivaay.shivaaytube.ui.components.layout.navigation.NavigationVisibility
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayNavigationChrome
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayNavigationDefaults
-import io.github.shivaay.shivaaytube.ui.components.layout.navigation.NavigationVisibility
-import io.github.shivaay.shivaaytube.ui.components.layout.navigation.shivaayUsesNavigationRail
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.rememberFlowNavigationScrollState
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.resolveDefaultShivaayTab
+import io.github.shivaay.shivaaytube.ui.components.layout.navigation.shivaayUsesNavigationRail
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.visibleShivaayTabs
 import io.github.shivaay.shivaaytube.ui.components.layout.topbar.ProvideShivaayGlobalActions
 import io.github.shivaay.shivaaytube.ui.components.music.common.ProvideMusicPlaybackState

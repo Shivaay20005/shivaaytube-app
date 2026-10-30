@@ -8,7 +8,6 @@
 package io.github.shivaay.shivaaytube.data.recommendation.eval
 
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.IdfSnapshot
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroCategoryStore
@@ -18,6 +17,7 @@ import io.github.shivaay.shivaaytube.data.recommendation.NeuroMaintenance
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroStorage
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTokenizer
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroVectorMath
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.mockk.coEvery
 import io.mockk.every

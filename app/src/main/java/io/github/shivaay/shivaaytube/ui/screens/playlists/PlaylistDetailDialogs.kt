@@ -22,8 +22,8 @@ import io.github.shivaay.shivaaytube.data.model.PlaylistInfo
 import io.github.shivaay.shivaaytube.ui.components.shared.CollectionEditDialog
 import io.github.shivaay.shivaaytube.ui.components.shared.CollectionTarget
 import io.github.shivaay.shivaaytube.ui.components.shared.DeleteCollectionDialog
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayAlertDialog
 import io.github.shivaay.shivaaytube.ui.components.shared.MergeIntoCollectionSheet
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayAlertDialog
 
 /** The dialog or sheet the playlist page has open, if any. */
 internal sealed interface PlaylistDialog {

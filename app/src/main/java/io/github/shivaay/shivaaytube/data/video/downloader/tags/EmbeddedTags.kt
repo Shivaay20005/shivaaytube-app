@@ -57,7 +57,10 @@ class EmbeddedTags(
                 when (entry) {
                     is MdtaMetadataEntry -> {
                         if (entry.typeIndicator == MdtaMetadataEntry.TYPE_INDICATOR_STRING) {
-                            ShivaayTagFields.fieldFromMdtaKey(entry.key)?.let { fields.putIfAbsent(it, String(entry.value, Charsets.UTF_8)) }
+                            ShivaayTagFields
+                                .fieldFromMdtaKey(
+                                    entry.key,
+                                )?.let { fields.putIfAbsent(it, String(entry.value, Charsets.UTF_8)) }
                         }
                     }
 

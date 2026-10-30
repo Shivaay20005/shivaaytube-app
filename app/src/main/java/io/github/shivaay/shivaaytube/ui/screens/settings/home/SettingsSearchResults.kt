@@ -14,9 +14,9 @@ import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingEntry
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsDestination
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsListScope
+import io.github.shivaay.shivaaytube.ui.components.shared.LocalDpadNavigation
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
-import io.github.shivaay.shivaaytube.ui.components.shared.LocalDpadNavigation
 import io.github.shivaay.shivaaytube.ui.screens.settings.index.DestinationIndex
 import io.github.shivaay.shivaaytube.ui.screens.settings.index.SearchableSetting
 import io.github.shivaay.shivaaytube.ui.screens.settings.index.SettingsIndex

@@ -34,7 +34,9 @@ class KeySpecTablesTest {
             linkedMapOf(
                 "keySpec" to JsonPrimitive(NeuroKeySpec.VERSION),
                 "about" to
-                    JsonPrimitive("Tables NeuroKeySpec reads titles by, written by KeySpecTablesTest. ShivaayTube Desktop mirrors this file."),
+                    JsonPrimitive(
+                        "Tables NeuroKeySpec reads titles by, written by KeySpecTablesTest. ShivaayTube Desktop mirrors this file.",
+                    ),
                 "maxRunWords" to JsonPrimitive(NeuroKeySpec.MAX_RUN_WORDS),
                 "maxKeyLength" to JsonPrimitive(NeuroKeySpec.MAX_KEY_LENGTH),
                 "minStem" to JsonPrimitive(NeuroStemmer.MIN_STEM),

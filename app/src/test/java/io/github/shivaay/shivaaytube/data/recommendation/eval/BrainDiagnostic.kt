@@ -7,7 +7,6 @@
 
 package io.github.shivaay.shivaaytube.data.recommendation.eval
 
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroClusters
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroDiscovery
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroMaintenance
@@ -15,6 +14,7 @@ import io.github.shivaay.shivaaytube.data.recommendation.NeuroScoring
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroStorage
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTokenizer
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTopicCatalog
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.github.shivaay.shivaaytube.data.recommendation.toUserBrain
 import kotlinx.serialization.Serializable

@@ -21,8 +21,8 @@ import io.github.shivaay.shivaaytube.data.music.model.MusicTrack
 import io.github.shivaay.shivaaytube.data.video.DownloadedVideo
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
 import io.github.shivaay.shivaaytube.ui.components.library.LibrarySection
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.screens.library.LibraryViewModel
 import io.github.shivaay.shivaaytube.ui.screens.library.libraryShelves
 import io.github.shivaay.shivaaytube.ui.screens.library.visibleContentSections

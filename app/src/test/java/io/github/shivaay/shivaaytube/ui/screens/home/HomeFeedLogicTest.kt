@@ -9,9 +9,9 @@ package io.github.shivaay.shivaaytube.ui.screens.home
 import com.google.common.truth.Truth.assertThat
 import io.github.shivaay.shivaaytube.data.local.VideoHistoryEntry
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedInput
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSource
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import org.junit.Test
 

@@ -24,9 +24,9 @@ import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayBottomSheet
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySegmentedGap
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySheetHeader
 import io.github.shivaay.shivaaytube.ui.components.shared.defaultSheetExpandedHeight
-import io.github.shivaay.shivaaytube.ui.components.shared.shivaaySegmentShape
-import io.github.shivaay.shivaaytube.ui.components.shared.rememberShivaayBottomSheetState
 import io.github.shivaay.shivaaytube.ui.components.shared.rememberMediaArtworkTint
+import io.github.shivaay.shivaaytube.ui.components.shared.rememberShivaayBottomSheetState
+import io.github.shivaay.shivaaytube.ui.components.shared.shivaaySegmentShape
 import io.github.shivaay.shivaaytube.utils.formatDurationMillis
 import kotlinx.coroutines.delay
 import org.schabi.newpipe.extractor.stream.StreamSegment

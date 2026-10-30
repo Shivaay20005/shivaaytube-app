@@ -24,10 +24,10 @@ import io.github.shivaay.shivaaytube.innertube.pages.MoodAndGenres
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
 import io.github.shivaay.shivaaytube.ui.components.layout.topbar.ShivaayTopBar
 import io.github.shivaay.shivaaytube.ui.components.music.section.MoodCategorySection
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayErrorState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShimmerHost
 import io.github.shivaay.shivaaytube.ui.components.shared.ShimmerMoodButton
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayErrorState
 import io.github.shivaay.shivaaytube.ui.components.shared.shivaayGridColumns
 
 @OptIn(ExperimentalMaterial3Api::class)

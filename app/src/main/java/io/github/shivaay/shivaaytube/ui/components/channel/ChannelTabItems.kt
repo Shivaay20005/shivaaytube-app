@@ -32,9 +32,9 @@ import io.github.shivaay.shivaaytube.ui.components.PlaylistCard
 import io.github.shivaay.shivaaytube.ui.components.PlaylistCardLayout
 import io.github.shivaay.shivaaytube.ui.components.rememberFeedGridLayout
 import io.github.shivaay.shivaaytube.ui.components.shared.FeedPagingFooter
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaShortCard
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaShortCard
 import io.github.shivaay.shivaaytube.ui.components.shared.ShortCardDefaults
 import io.github.shivaay.shivaaytube.ui.components.shared.card.MediaVideoCard
 import io.github.shivaay.shivaaytube.ui.components.shared.card.VideoCardDefaults

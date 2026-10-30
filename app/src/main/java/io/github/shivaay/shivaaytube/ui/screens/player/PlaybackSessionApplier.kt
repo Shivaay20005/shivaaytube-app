@@ -9,8 +9,8 @@ import io.github.shivaay.shivaaytube.data.localmedia.LocalMediaIds
 import io.github.shivaay.shivaaytube.data.localmedia.LocalSubtitles
 import io.github.shivaay.shivaaytube.data.model.SponsorBlockSegment
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.SponsorBlockRepository
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.video.OfflineSubtitleStore

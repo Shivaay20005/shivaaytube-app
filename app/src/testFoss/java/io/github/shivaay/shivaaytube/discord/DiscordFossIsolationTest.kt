@@ -6,14 +6,15 @@ import org.junit.Test
 class DiscordFossIsolationTest {
     @Test
     fun `foss classpath excludes functional Discord implementation`() {
-        val forbiddenClasses = listOf(
-            "io.github.shivaay.shivaaytube.discord.DiscordTokenStore",
-            "io.github.shivaay.shivaaytube.discord.DiscordAuthTokens",
-            "io.github.shivaay.shivaaytube.discord.DiscordPlaybackSource",
-            "io.github.shivaay.shivaaytube.discord.DiscordPresenceCoordinator",
-            "io.github.shivaay.shivaaytube.discord.KizzyDiscordPresenceTransport",
-            "io.github.shivaay.shivaaytube.discord.KizzyGatewayProtocol",
-        )
+        val forbiddenClasses =
+            listOf(
+                "io.github.shivaay.shivaaytube.discord.DiscordTokenStore",
+                "io.github.shivaay.shivaaytube.discord.DiscordAuthTokens",
+                "io.github.shivaay.shivaaytube.discord.DiscordPlaybackSource",
+                "io.github.shivaay.shivaaytube.discord.DiscordPresenceCoordinator",
+                "io.github.shivaay.shivaaytube.discord.KizzyDiscordPresenceTransport",
+                "io.github.shivaay.shivaaytube.discord.KizzyGatewayProtocol",
+            )
 
         forbiddenClasses.forEach { className ->
             assertThat(runCatching { Class.forName(className) }.isFailure).isTrue()

@@ -45,7 +45,9 @@ class SplashThemesTest {
         assertThat(
             splashThemeFor(".IconExpressiveScallop", SplashTone.LIGHT),
         ).isEqualTo(R.style.Theme_ShivaayTube_Starting_Light_Expressive_Scallop)
-        assertThat(splashThemeFor(".IconExpressivePill", SplashTone.BLACK)).isEqualTo(R.style.Theme_ShivaayTube_Starting_Black_Expressive_Pill)
+        assertThat(
+            splashThemeFor(".IconExpressivePill", SplashTone.BLACK),
+        ).isEqualTo(R.style.Theme_ShivaayTube_Starting_Black_Expressive_Pill)
     }
 
     @Test

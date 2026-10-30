@@ -20,12 +20,12 @@ import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.model.toVideo
 import io.github.shivaay.shivaaytube.data.recommendation.ChannelMemoryRepository
 import io.github.shivaay.shivaaytube.data.recommendation.FeedExclusions
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedInput
 import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannel
 import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannelsRepository
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroScoring
 import io.github.shivaay.shivaaytube.data.recommendation.RankTrace
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.repository.needsChannelMetadata
@@ -595,7 +595,12 @@ class HomeViewModel
                                         async {
                                             val seedInputs = feedSources.historySeedInputs()
                                             val longTermInputs = feedSources.longTermSeedInputs()
-                                            val seedIds = ShivaayNeuroEngine.selectRelatedSeeds(seedInputs, MAX_RELATED_SEEDS, longTermInputs)
+                                            val seedIds =
+                                                ShivaayNeuroEngine.selectRelatedSeeds(
+                                                    seedInputs,
+                                                    MAX_RELATED_SEEDS,
+                                                    longTermInputs,
+                                                )
                                             feedSources.fetchRelatedGraph(seedInputs + longTermInputs, seedIds, ::cacheFilters)
                                         }
 

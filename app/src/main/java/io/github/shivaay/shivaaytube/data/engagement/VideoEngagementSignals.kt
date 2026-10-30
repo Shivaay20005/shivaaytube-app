@@ -3,8 +3,8 @@ package io.github.shivaay.shivaaytube.data.engagement
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import javax.inject.Inject
 

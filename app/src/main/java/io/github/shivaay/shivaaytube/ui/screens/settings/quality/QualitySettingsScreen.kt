@@ -67,8 +67,16 @@ internal fun QualitySettingsScreen(
 
     val tabs =
         listOf(
-            ShivaayToggleOption(SettingsTabs.QUALITY_VIDEO, stringResource(R.string.settings_quality_tab_video), Icons.Outlined.SmartDisplay),
-            ShivaayToggleOption(SettingsTabs.QUALITY_SHORTS, stringResource(R.string.settings_quality_tab_shorts), Icons.Outlined.Slideshow),
+            ShivaayToggleOption(
+                SettingsTabs.QUALITY_VIDEO,
+                stringResource(R.string.settings_quality_tab_video),
+                Icons.Outlined.SmartDisplay,
+            ),
+            ShivaayToggleOption(
+                SettingsTabs.QUALITY_SHORTS,
+                stringResource(R.string.settings_quality_tab_shorts),
+                Icons.Outlined.Slideshow,
+            ),
             ShivaayToggleOption(SettingsTabs.QUALITY_MUSIC, stringResource(R.string.settings_quality_tab_music), Icons.Outlined.MusicNote),
         )
     val videoWifiLabel = stringResource(videoQualityLabel(videoWifi))
@@ -262,7 +270,16 @@ private fun QualityPickerDialog(
             ShivaayChoiceDialog(
                 title = stringResource(R.string.player_settings_video_codec_dialog_title),
                 description = stringResource(R.string.player_settings_video_codec_dialog_body),
-                options = VideoCodec.entries.map { ShivaayChoice(it, codecLabel(it), autoDescription.takeIf { _ -> it == VideoCodec.AUTO }) },
+                options =
+                    VideoCodec.entries.map {
+                        ShivaayChoice(
+                            it,
+                            codecLabel(it),
+                            autoDescription.takeIf { _ ->
+                                it == VideoCodec.AUTO
+                            },
+                        )
+                    },
                 selected = state.codec,
                 onSelect = viewModel::setCodec,
                 onDismiss = onDismiss,

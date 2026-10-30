@@ -12,9 +12,9 @@ import io.github.shivaay.shivaaytube.data.local.dao.WatchHistoryDao
 import io.github.shivaay.shivaaytube.data.recommendation.BlockedChannelNames
 import io.github.shivaay.shivaaytube.data.recommendation.ChannelMemoryRepository
 import io.github.shivaay.shivaaytube.data.recommendation.ContentVector
+import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannelsRepository
 import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
-import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannelsRepository
 import io.github.shivaay.shivaaytube.data.recommendation.TimeBucket
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.github.shivaay.shivaaytube.data.recommendation.music.MusicBrainEngine

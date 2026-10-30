@@ -43,11 +43,11 @@ import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.model.VideoCollaborator
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.LocalMediaNavigator
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarStack
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnail
+import io.github.shivaay.shivaaytube.ui.components.shared.SaveVideoSheet
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySubscribeButton
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySubscribeButtonSize
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnail
-import io.github.shivaay.shivaaytube.ui.components.shared.SaveVideoSheet
 import io.github.shivaay.shivaaytube.ui.components.shared.card.LocalVideoCardPreferences
 import io.github.shivaay.shivaaytube.ui.components.shared.card.channelAvatarUrls
 import io.github.shivaay.shivaaytube.ui.components.shared.card.isWatchedProgress

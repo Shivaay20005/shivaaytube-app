@@ -36,9 +36,9 @@ import io.github.shivaay.shivaaytube.data.music.DownloadedTrack
 import io.github.shivaay.shivaaytube.data.video.DownloadProgressUpdate
 import io.github.shivaay.shivaaytube.data.video.DownloadedVideo
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayPullToRefreshBox
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.animateMediaGridItem
 
 private val GridSpacing = 12.dp

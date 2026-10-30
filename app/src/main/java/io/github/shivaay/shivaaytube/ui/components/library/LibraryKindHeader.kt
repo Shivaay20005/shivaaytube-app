@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayConnectedToggleGroup
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayToggleOption
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.utils.LocalWindowSizeClass
 import io.github.shivaay.shivaaytube.ui.utils.isMediumWidth
 

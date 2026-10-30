@@ -24,9 +24,9 @@ import androidx.compose.ui.unit.dp
 import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.model.PlaylistInfo
 import io.github.shivaay.shivaaytube.data.playlist.PlaylistListOrder
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayFilterChip
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySortChip
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 
 private val FilterRowPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
 private val MenuIconSize = 16.dp

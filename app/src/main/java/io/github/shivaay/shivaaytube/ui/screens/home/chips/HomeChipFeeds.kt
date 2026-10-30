@@ -11,10 +11,10 @@ import io.github.shivaay.shivaaytube.data.local.dao.VideoDao
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.recommendation.ChannelMemoryRepository
 import io.github.shivaay.shivaaytube.data.recommendation.FeedExclusions
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedInput
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSelector
 import io.github.shivaay.shivaaytube.data.recommendation.InterestChip
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.repository.needsChannelMetadata
 import io.github.shivaay.shivaaytube.data.stats.VideoStatsRecorder

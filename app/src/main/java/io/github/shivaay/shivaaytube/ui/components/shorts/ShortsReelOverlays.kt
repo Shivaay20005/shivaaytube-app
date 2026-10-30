@@ -37,8 +37,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.local.ThumbnailQuality
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
 import io.github.shivaay.shivaaytube.ui.components.shared.LocalThumbnailQuality
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
 import io.github.shivaay.shivaaytube.ui.components.shared.VideoThumbnailImage
 import io.github.shivaay.shivaaytube.ui.theme.PlayerScrim
 import io.github.shivaay.shivaaytube.ui.theme.PlayerScrimContent

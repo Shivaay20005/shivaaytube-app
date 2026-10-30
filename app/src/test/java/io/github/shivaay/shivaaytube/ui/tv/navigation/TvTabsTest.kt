@@ -1,8 +1,8 @@
 package io.github.shivaay.shivaaytube.ui.tv.navigation
 
 import com.google.common.truth.Truth.assertThat
-import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.NavigationVisibility
+import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import org.junit.Test
 
 class TvTabsTest {

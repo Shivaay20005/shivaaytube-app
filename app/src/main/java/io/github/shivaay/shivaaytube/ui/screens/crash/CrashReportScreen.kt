@@ -154,7 +154,11 @@ fun CrashReportScreen(
 @Composable
 private fun CrashHeader() {
     Column(verticalArrangement = Arrangement.spacedBy(Spacing)) {
-        Surface(shape = shivaayActionShape(), color = MaterialTheme.colorScheme.errorContainer, modifier = Modifier.size(IconContainerSize)) {
+        Surface(
+            shape = shivaayActionShape(),
+            color = MaterialTheme.colorScheme.errorContainer,
+            modifier = Modifier.size(IconContainerSize),
+        ) {
             Box(contentAlignment = Alignment.Center) {
                 Icon(
                     Icons.Outlined.BugReport,

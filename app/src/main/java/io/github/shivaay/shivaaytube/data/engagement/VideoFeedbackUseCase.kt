@@ -7,8 +7,8 @@ import io.github.shivaay.shivaaytube.data.local.ViewHistory
 import io.github.shivaay.shivaaytube.data.local.WatchLaterCleanup
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.recommendation.BlockedChannelNames
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.stats.LedgerAction
 import io.github.shivaay.shivaaytube.data.stats.VideoStatsRecorder

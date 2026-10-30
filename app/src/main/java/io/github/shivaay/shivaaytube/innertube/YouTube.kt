@@ -600,7 +600,10 @@ object YouTube {
                     ignoreUnknownKeys = true
                     explicitNulls = false
                 }
-            val response = lenientJson.decodeFromString<io.github.shivaay.shivaaytube.innertube.models.response.ChannelSearchResponse>(rawBody)
+            val response =
+                lenientJson.decodeFromString<io.github.shivaay.shivaaytube.innertube.models.response.ChannelSearchResponse>(
+                    rawBody,
+                )
             parseChannelSearchResponse(response, channelId, channelName, channelThumbnailUrl)
         }
 
@@ -624,7 +627,10 @@ object YouTube {
                     ignoreUnknownKeys = true
                     explicitNulls = false
                 }
-            val response = lenientJson.decodeFromString<io.github.shivaay.shivaaytube.innertube.models.response.ChannelSearchResponse>(rawBody)
+            val response =
+                lenientJson.decodeFromString<io.github.shivaay.shivaaytube.innertube.models.response.ChannelSearchResponse>(
+                    rawBody,
+                )
 
             val videos = mutableListOf<io.github.shivaay.shivaaytube.data.model.Video>()
             var nextContinuation: String? = null

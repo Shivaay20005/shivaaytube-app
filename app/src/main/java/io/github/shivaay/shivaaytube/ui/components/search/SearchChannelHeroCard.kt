@@ -36,9 +36,9 @@ import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.model.Channel
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarImage
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaArtworkTint
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySubscribeButton
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySubscribeButtonSize
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaArtworkTint
 import io.github.shivaay.shivaaytube.ui.components.shared.card.MediaVideoCard
 import io.github.shivaay.shivaaytube.ui.components.shared.feedStripCardWidth
 import io.github.shivaay.shivaaytube.ui.components.shared.rememberMediaArtworkTint

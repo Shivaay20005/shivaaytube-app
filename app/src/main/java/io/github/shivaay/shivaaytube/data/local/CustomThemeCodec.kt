@@ -3,8 +3,8 @@ package io.github.shivaay.shivaaytube.data.local
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import io.github.shivaay.shivaaytube.ui.theme.CustomTheme
-import io.github.shivaay.shivaaytube.ui.theme.ShivaayPalettes
 import io.github.shivaay.shivaaytube.ui.theme.PaletteColors
+import io.github.shivaay.shivaaytube.ui.theme.ShivaayPalettes
 import io.github.shivaay.shivaaytube.ui.theme.ThemeVariant
 import io.github.shivaay.shivaaytube.ui.theme.mixColors
 import kotlinx.serialization.Serializable

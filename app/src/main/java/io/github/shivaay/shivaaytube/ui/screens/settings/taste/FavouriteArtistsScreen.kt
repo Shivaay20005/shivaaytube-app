@@ -15,10 +15,10 @@ import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.recommendation.music.FavouriteArtist
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsListScope
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsPage
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaArtistToggleRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaArtistToggleRow
 
 private val LoadingHeight = 160.dp
 

@@ -13,6 +13,7 @@ internal class CryptoWallet(
 )
 
 /** The addresses the donations page lists; the donation prompt names the same ones. */
-internal val DonationWallets = listOf(
-    CryptoWallet(R.string.donation_currency_upi, "UPI", UPI_ID),
-)
+internal val DonationWallets =
+    listOf(
+        CryptoWallet(R.string.donation_currency_upi, "UPI", UPI_ID),
+    )

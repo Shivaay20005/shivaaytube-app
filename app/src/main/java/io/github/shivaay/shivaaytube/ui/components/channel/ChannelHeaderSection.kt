@@ -37,9 +37,9 @@ import androidx.compose.ui.unit.dp
 import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.innertube.pages.channel.ChannelHeader
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarImage
+import io.github.shivaay.shivaaytube.ui.components.shared.FullSizeImageDialog
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNoteCard
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySubscribeButton
-import io.github.shivaay.shivaaytube.ui.components.shared.FullSizeImageDialog
 import io.github.shivaay.shivaaytube.ui.theme.extendedColors
 import io.github.shivaay.shivaaytube.utils.ThumbnailUrlResolver
 import io.github.shivaay.shivaaytube.utils.copyPlainText

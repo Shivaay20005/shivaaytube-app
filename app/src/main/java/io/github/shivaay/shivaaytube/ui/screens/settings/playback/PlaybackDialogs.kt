@@ -183,7 +183,10 @@ private fun ShortsModeDialog(
             listOf(
                 ShivaayChoice(ShortsPlaybackModes.LOOP, stringResource(R.string.player_settings_shorts_playback_mode_loop)),
                 ShivaayChoice(ShortsPlaybackModes.AUTO_NEXT, stringResource(R.string.player_settings_shorts_playback_mode_auto_next)),
-                ShivaayChoice(ShortsPlaybackModes.AUTO_INTERVAL, stringResource(R.string.player_settings_shorts_playback_mode_auto_interval)),
+                ShivaayChoice(
+                    ShortsPlaybackModes.AUTO_INTERVAL,
+                    stringResource(R.string.player_settings_shorts_playback_mode_auto_interval),
+                ),
             ),
         selected = mode,
         onSelect = viewModel::setShortsPlaybackMode,

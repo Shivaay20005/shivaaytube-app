@@ -9,12 +9,12 @@ package io.github.shivaay.shivaaytube.data.recommendation.eval
 
 import io.github.shivaay.shivaaytube.data.recommendation.ContentVector
 import io.github.shivaay.shivaaytube.data.recommendation.FeedEntry
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroDiscovery
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroScoring
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTokenizer
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTopicCatalog
 import io.github.shivaay.shivaaytube.data.recommendation.ScoredVideo
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayPersona
 import io.github.shivaay.shivaaytube.data.recommendation.TopicEvidence
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.github.shivaay.shivaaytube.data.recommendation.WatchEntry

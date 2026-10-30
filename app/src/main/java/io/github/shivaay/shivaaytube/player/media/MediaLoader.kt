@@ -129,8 +129,10 @@ class MediaLoader(
         sabrInfo: SabrStreamInfo? = null,
         sabrVideoId: String? = null,
         sabrPreferred: Boolean = false,
-        innerTubeVideoFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> = emptyList(),
-        innerTubeAudioFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> = emptyList(),
+        innerTubeVideoFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> =
+            emptyList(),
+        innerTubeAudioFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> =
+            emptyList(),
         mediaId: String = "",
         mediaMetadata: MediaMetadata = MediaMetadata.EMPTY,
         adaptiveLadder: List<VideoStream> = emptyList(),
@@ -300,8 +302,10 @@ class MediaLoader(
         sabrVideoId: String? = null,
         sabrPreferred: Boolean = false,
         startPositionMs: Long = 0L,
-        innerTubeVideoFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> = emptyList(),
-        innerTubeAudioFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> = emptyList(),
+        innerTubeVideoFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> =
+            emptyList(),
+        innerTubeAudioFormats: List<io.github.shivaay.shivaaytube.innertube.models.response.PlayerResponse.StreamingData.Format> =
+            emptyList(),
         mediaId: String = "",
         mediaMetadata: MediaMetadata = MediaMetadata.EMPTY,
         adaptiveLadder: List<VideoStream> = emptyList(),

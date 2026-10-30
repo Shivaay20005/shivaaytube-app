@@ -16,11 +16,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsListScope
 import io.github.shivaay.shivaaytube.ui.components.settings.SettingsPage
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaChannelSubscribeRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayQuickSearchChips
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaChannelSubscribeRow
 import io.github.shivaay.shivaaytube.utils.formatSubscriberCount
 
 private val LoadingHeight = 160.dp

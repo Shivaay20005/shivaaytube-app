@@ -11,8 +11,8 @@ import io.github.shivaay.shivaaytube.data.localmedia.toVideo
 import io.github.shivaay.shivaaytube.data.music.model.MusicTrack
 import io.github.shivaay.shivaaytube.data.music.model.toMusicTrack
 import io.github.shivaay.shivaaytube.data.music.model.toVideo
-import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.MediaNavigator
+import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import io.github.shivaay.shivaaytube.ui.screens.music.EnhancedMusicScreen
 import io.github.shivaay.shivaaytube.ui.screens.music.MusicViewModel
 import io.github.shivaay.shivaaytube.ui.screens.music.sharedMusicPlayerViewModel

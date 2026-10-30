@@ -40,9 +40,9 @@ import io.github.shivaay.shivaaytube.ui.components.FEED_MAX_AUTO_COLUMNS
 import io.github.shivaay.shivaaytube.ui.components.FeedCardMinWidth
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
 import io.github.shivaay.shivaaytube.ui.components.rememberFeedGridLayout
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaShortsShelf
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayFilterChip
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayPullToRefreshBox
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaShortsShelf
 import io.github.shivaay.shivaaytube.ui.components.shared.card.MediaVideoCard
 import io.github.shivaay.shivaaytube.ui.components.shared.card.VideoCardLayout
 import io.github.shivaay.shivaaytube.ui.components.shared.dpadFocusGroup

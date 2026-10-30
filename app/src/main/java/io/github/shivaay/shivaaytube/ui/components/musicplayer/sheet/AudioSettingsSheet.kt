@@ -29,13 +29,13 @@ import io.github.shivaay.shivaaytube.player.EnhancedMusicPlayerManager
 import io.github.shivaay.shivaaytube.ui.components.equalizer.EqQuickPanel
 import io.github.shivaay.shivaaytube.ui.components.equalizer.PanelRow
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.LocalMediaNavigator
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaPlaybackSpeedPicker
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayModalSheetDefaults
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayRowGroup
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySectionHeader
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySheetHeader
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySwitchRow
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaPlaybackSpeedPicker
 import io.github.shivaay.shivaaytube.ui.components.shared.flowRowGroupShape
 import io.github.shivaay.shivaaytube.ui.components.shared.rememberShivaaySheetState
 import kotlinx.coroutines.launch

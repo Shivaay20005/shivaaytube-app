@@ -31,8 +31,8 @@ import io.github.shivaay.shivaaytube.ui.components.layout.floatAboveBottomChrome
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayBottomContentPadding
 import io.github.shivaay.shivaaytube.ui.components.layout.topbar.ShivaayGlobalActionsMode
 import io.github.shivaay.shivaaytube.ui.components.layout.topbar.ShivaayTopBar
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayMaxContentWidth
 import io.github.shivaay.shivaaytube.ui.components.shared.LocalDpadNavigation
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayMaxContentWidth
 import kotlinx.coroutines.flow.first
 
 internal val SettingsMaxContentWidth = ShivaayMaxContentWidth

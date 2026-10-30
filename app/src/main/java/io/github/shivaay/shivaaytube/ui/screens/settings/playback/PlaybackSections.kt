@@ -171,7 +171,10 @@ private fun SettingsListScope.watchPageSection(
             options =
                 listOf(
                     ShivaayToggleOption(PlayerRelatedCardStyle.COMPACT, stringResource(R.string.content_settings_related_card_compact)),
-                    ShivaayToggleOption(PlayerRelatedCardStyle.FULL_WIDTH, stringResource(R.string.content_settings_related_card_full_width)),
+                    ShivaayToggleOption(
+                        PlayerRelatedCardStyle.FULL_WIDTH,
+                        stringResource(R.string.content_settings_related_card_full_width),
+                    ),
                 ),
             selected = selected,
             onSelected = viewModel::setRelatedCardStyle,

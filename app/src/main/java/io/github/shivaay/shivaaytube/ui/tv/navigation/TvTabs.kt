@@ -1,8 +1,8 @@
 package io.github.shivaay.shivaaytube.ui.tv.navigation
 
 import androidx.compose.runtime.Immutable
-import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.NavigationVisibility
+import io.github.shivaay.shivaaytube.ui.components.layout.navigation.ShivaayTab
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.resolveDefaultShivaayTab
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.visibleShivaayTabs
 

@@ -39,12 +39,12 @@ import io.github.shivaay.shivaaytube.data.notes.NoteKind
 import io.github.shivaay.shivaaytube.data.notes.NoteMoments
 import io.github.shivaay.shivaaytube.ui.components.layout.shivaayContentPadding
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarImage
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnail
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayConnectedToggleGroup
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayLoadingIndicator
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayToggleOption
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaThumbnail
 import io.github.shivaay.shivaaytube.utils.formatDurationMillis
 
 private const val LIST_MOMENTS = 3

@@ -26,12 +26,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.model.Channel
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaChannelSubscribeRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayPopIn
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayQuickSearchChips
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySectionHeader
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySegmentedGap
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaChannelSubscribeRow
 import io.github.shivaay.shivaaytube.ui.components.shared.dismissKeyboardOnPress
 import io.github.shivaay.shivaaytube.ui.components.shared.shivaaySegmentShape
 import io.github.shivaay.shivaaytube.utils.formatSubscriberCount

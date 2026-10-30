@@ -43,8 +43,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.music.model.MusicTrack
 import io.github.shivaay.shivaaytube.ui.TabScrollEventBus
-import io.github.shivaay.shivaaytube.ui.components.layout.ShivaayBottomInsets
 import io.github.shivaay.shivaaytube.ui.components.layout.LocalShivaayBottomInsets
+import io.github.shivaay.shivaaytube.ui.components.layout.ShivaayBottomInsets
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaMiniBarDefaults
 import io.github.shivaay.shivaaytube.ui.screens.home.HomeViewModel
 import io.github.shivaay.shivaaytube.ui.screens.music.MusicPlayerViewModel

@@ -42,10 +42,10 @@ import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.music.model.MusicTrack
 import io.github.shivaay.shivaaytube.innertube.pages.MoodAndGenres
 import io.github.shivaay.shivaaytube.ui.components.search.SearchSuggestionsPanel
+import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayConnectedToggleGroup
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayToggleOption
-import io.github.shivaay.shivaaytube.ui.components.shared.MediaKind
 import io.github.shivaay.shivaaytube.ui.components.shared.quickactions.sharedQuickActionsViewModel
 import io.github.shivaay.shivaaytube.ui.screens.music.MusicSearchBody
 import io.github.shivaay.shivaaytube.ui.screens.music.MusicSearchViewModel

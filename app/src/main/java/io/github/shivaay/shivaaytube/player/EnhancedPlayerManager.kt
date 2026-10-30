@@ -2024,7 +2024,11 @@ class EnhancedPlayerManager private constructor() {
                             _playerState.value =
                                 _playerState.value.copy(
                                     isBuffering = false,
-                                    error = appContext?.getString(io.github.shivaay.shivaaytube.R.string.error_unable_to_load_next_video).orEmpty(),
+                                    error =
+                                        appContext
+                                            ?.getString(
+                                                io.github.shivaay.shivaaytube.R.string.error_unable_to_load_next_video,
+                                            ).orEmpty(),
                                 )
                             releaseAdvanceWakeLock()
                             return@launch
@@ -2072,7 +2076,11 @@ class EnhancedPlayerManager private constructor() {
                         _playerState.value.copy(
                             isBuffering = false,
                             error =
-                                e.message ?: appContext?.getString(io.github.shivaay.shivaaytube.R.string.error_unable_to_load_next_video).orEmpty(),
+                                e.message
+                                    ?: appContext
+                                        ?.getString(
+                                            io.github.shivaay.shivaaytube.R.string.error_unable_to_load_next_video,
+                                        ).orEmpty(),
                         )
                     releaseAdvanceWakeLock()
                 } finally {

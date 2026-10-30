@@ -20,13 +20,13 @@ import io.github.shivaay.shivaaytube.player.QualityOption
 import io.github.shivaay.shivaaytube.player.SubtitleOption
 import io.github.shivaay.shivaaytube.player.state.SubtitleOrigin
 import io.github.shivaay.shivaaytube.player.stream.VideoCodecUtils
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayRowGroup
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySelectionRow
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaAudioTrackRow
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaPlaybackSpeedPicker
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaQualitySelectorContent
 import io.github.shivaay.shivaaytube.ui.components.shared.MediaQualitySelectorOption
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayRowGroup
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySelectionRow
 import io.github.shivaay.shivaaytube.ui.components.shared.audioTrackFallbackLabel
 import io.github.shivaay.shivaaytube.ui.components.shared.flowRowGroupShape
 

@@ -6,11 +6,11 @@ import io.github.shivaay.shivaaytube.data.local.LikedVideosRepository
 import io.github.shivaay.shivaaytube.data.local.PlaylistRepository
 import io.github.shivaay.shivaaytube.data.local.ViewHistory
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedInput
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSelector
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSource
 import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannels
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll

@@ -9,10 +9,10 @@ import io.github.shivaay.shivaaytube.data.local.SubscriptionRepository
 import io.github.shivaay.shivaaytube.data.model.Channel
 import io.github.shivaay.shivaaytube.data.paging.ChannelSearch
 import io.github.shivaay.shivaaytube.data.recommendation.ChannelMemoryRepository
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannel
 import io.github.shivaay.shivaaytube.data.recommendation.NeighbourChannelsRepository
 import io.github.shivaay.shivaaytube.data.recommendation.RememberedChannel
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.ChannelAvatarRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

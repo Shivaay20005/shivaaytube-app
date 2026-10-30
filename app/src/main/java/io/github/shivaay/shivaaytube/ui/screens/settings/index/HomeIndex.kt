@@ -75,5 +75,6 @@ internal object HomeIndex {
         )
 
     /** The persona card is found through Your taste's own destination entry, not listed twice. */
-    val all = listOf(deepShivaay, deepShivaayDuration, deepShivaayHistory, deepShivaayScrobble, deepShivaayOnSearch, checkForUpdates, support)
+    val all =
+        listOf(deepShivaay, deepShivaayDuration, deepShivaayHistory, deepShivaayScrobble, deepShivaayOnSearch, checkForUpdates, support)
 }

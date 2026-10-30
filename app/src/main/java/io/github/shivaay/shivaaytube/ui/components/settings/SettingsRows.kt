@@ -21,11 +21,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.shivaay.shivaaytube.ui.components.shared.LocalDpadNavigation
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayNavRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySelectionRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySwitchRow
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayToggleOption
-import io.github.shivaay.shivaaytube.ui.components.shared.LocalDpadNavigation
 import kotlinx.coroutines.flow.StateFlow
 
 /**

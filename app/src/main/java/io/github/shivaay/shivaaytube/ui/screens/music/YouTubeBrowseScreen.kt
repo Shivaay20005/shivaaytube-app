@@ -36,11 +36,11 @@ import io.github.shivaay.shivaaytube.ui.components.music.item.MusicItemDensity
 import io.github.shivaay.shivaaytube.ui.components.music.item.MusicTrackItem
 import io.github.shivaay.shivaaytube.ui.components.music.section.MusicShelf
 import io.github.shivaay.shivaaytube.ui.components.music.section.MusicTrackShelf
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
-import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayErrorState
 import io.github.shivaay.shivaaytube.ui.components.shared.ShimmerGridItem
 import io.github.shivaay.shivaaytube.ui.components.shared.ShimmerHost
 import io.github.shivaay.shivaaytube.ui.components.shared.ShimmerSectionTitle
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayEmptyState
+import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayErrorState
 import io.github.shivaay.shivaaytube.ui.components.shared.shivaayArtistShape
 import io.github.shivaay.shivaaytube.ui.components.shared.shivaayLaneItemWidth
 

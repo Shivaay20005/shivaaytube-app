@@ -24,8 +24,8 @@ import io.github.shivaay.shivaaytube.data.stats.VideoRecap
 import io.github.shivaay.shivaaytube.data.stats.ViewFormat
 import io.github.shivaay.shivaaytube.ui.components.layout.navigation.LocalMediaNavigator
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySegmentedGap
-import io.github.shivaay.shivaaytube.ui.components.shared.shivaayArtistShape
 import io.github.shivaay.shivaaytube.ui.components.shared.flowRowGroupShape
+import io.github.shivaay.shivaaytube.ui.components.shared.shivaayArtistShape
 import io.github.shivaay.shivaaytube.ui.components.stats.StatBigNumber
 import io.github.shivaay.shivaaytube.ui.components.stats.StatCard
 import io.github.shivaay.shivaaytube.ui.components.stats.StatLegendItem

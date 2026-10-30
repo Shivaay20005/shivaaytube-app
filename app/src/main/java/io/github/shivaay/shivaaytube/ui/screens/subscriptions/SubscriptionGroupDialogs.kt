@@ -55,9 +55,9 @@ import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.model.Channel
 import io.github.shivaay.shivaaytube.data.model.SubscriptionGroup
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarImage
+import io.github.shivaay.shivaaytube.ui.components.shared.ReorderHandle
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaayAlertDialog
 import io.github.shivaay.shivaaytube.ui.components.shared.ShivaaySearchField
-import io.github.shivaay.shivaaytube.ui.components.shared.ReorderHandle
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 

@@ -5,8 +5,8 @@ import com.google.common.truth.Truth.assertThat
 import io.github.shivaay.shivaaytube.data.local.HomeFeedCacheRepository
 import io.github.shivaay.shivaaytube.data.local.ViewHistory
 import io.github.shivaay.shivaaytube.data.model.Video
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.stats.ViewFormat
 import io.github.shivaay.shivaaytube.player.state.PlaybackCompletion

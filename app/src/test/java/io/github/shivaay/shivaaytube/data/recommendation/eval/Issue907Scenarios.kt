@@ -9,7 +9,6 @@ package io.github.shivaay.shivaaytube.data.recommendation.eval
 
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.recommendation.ContentVector
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedInput
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSelector
 import io.github.shivaay.shivaaytube.data.recommendation.GraphSeedSource
@@ -23,6 +22,7 @@ import io.github.shivaay.shivaaytube.data.recommendation.NeuroStorage
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTokenizer
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroTopicCatalog
 import io.github.shivaay.shivaaytube.data.recommendation.NeuroVectorMath
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.UserBrain
 import io.github.shivaay.shivaaytube.data.recommendation.eval.NeuroLearningBenchmark.Family
 import io.mockk.coEvery

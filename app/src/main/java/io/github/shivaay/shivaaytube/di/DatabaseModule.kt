@@ -37,7 +37,8 @@ object DatabaseModule {
     fun provideCacheDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.CacheDao = database.cacheDao()
 
     @Provides
-    fun provideHomeFeedCacheDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.HomeFeedCacheDao = database.homeFeedCacheDao()
+    fun provideHomeFeedCacheDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.HomeFeedCacheDao =
+        database.homeFeedCacheDao()
 
     @Provides
     fun provideDownloadDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.DownloadDao = database.downloadDao()
@@ -55,7 +56,8 @@ object DatabaseModule {
         database.subscriptionGroupDao()
 
     @Provides
-    fun provideWatchHistoryDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.WatchHistoryDao = database.watchHistoryDao()
+    fun provideWatchHistoryDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.WatchHistoryDao =
+        database.watchHistoryDao()
 
     @Provides
     fun provideSyncLogDao(database: AppDatabase): io.github.shivaay.shivaaytube.data.local.dao.SyncLogDao = database.syncLogDao()

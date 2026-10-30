@@ -2,8 +2,8 @@ package io.github.shivaay.shivaaytube.innertube.models.response
 
 import io.github.shivaay.shivaaytube.innertube.models.AccountInfo
 import io.github.shivaay.shivaaytube.innertube.models.Runs
-import io.github.shivaay.shivaaytube.innertube.models.Thumbnails
 import io.github.shivaay.shivaaytube.innertube.models.Thumbnail
+import io.github.shivaay.shivaaytube.innertube.models.Thumbnails
 import kotlinx.serialization.Serializable
 
 @Serializable

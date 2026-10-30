@@ -35,8 +35,8 @@ import io.github.shivaay.shivaaytube.R
 import io.github.shivaay.shivaaytube.data.model.Channel
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelAvatarImage
 import io.github.shivaay.shivaaytube.ui.components.shared.ChannelGroupBadge
-import io.github.shivaay.shivaaytube.ui.components.shared.shivaayArtistShape
 import io.github.shivaay.shivaaytube.ui.components.shared.focusLift
+import io.github.shivaay.shivaaytube.ui.components.shared.shivaayArtistShape
 import io.github.shivaay.shivaaytube.ui.components.shared.titleMarquee
 
 private val AvatarItemWidth = 64.dp

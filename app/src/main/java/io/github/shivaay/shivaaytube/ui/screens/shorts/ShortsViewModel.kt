@@ -19,8 +19,8 @@ import io.github.shivaay.shivaaytube.data.model.ShortVideo
 import io.github.shivaay.shivaaytube.data.model.Video
 import io.github.shivaay.shivaaytube.data.model.toVideo
 import io.github.shivaay.shivaaytube.data.recommendation.BlockedChannelNames
-import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.recommendation.InteractionType
+import io.github.shivaay.shivaaytube.data.recommendation.ShivaayNeuroEngine
 import io.github.shivaay.shivaaytube.data.repository.YouTubeRepository
 import io.github.shivaay.shivaaytube.data.shorts.ShortAudioTrack
 import io.github.shivaay.shivaaytube.data.shorts.ShortDetails
