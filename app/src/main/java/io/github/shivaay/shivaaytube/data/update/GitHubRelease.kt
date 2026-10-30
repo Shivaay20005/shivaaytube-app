@@ -7,10 +7,12 @@ import java.time.Instant
 
 private val ReleaseJson = Json { ignoreUnknownKeys = true }
 private const val SHA256_PREFIX = "sha256:"
-private const val FOSS_PREFIX = "flow-foss"
-private const val UNIVERSAL_APK = "flow.apk"
 private const val APK_SUFFIX = ".apk"
+private const val FOSS_APK_PART = "-foss"
 private val NightlyApk = Regex("""shivaaytube-nightly-(\d+)\.apk""", RegexOption.IGNORE_CASE)
+
+/** Release APKs are named `ShivaayTube-v1.2.3-<abi>.apk`; the suffix tells a split from the universal build. */
+private val ApkAbiSuffix = Regex("""-(arm64-v8a|armeabi-v7a|x86_64|x86)\.apk$""", RegexOption.IGNORE_CASE)
 
 @Serializable
 internal data class GitHubRelease(
@@ -71,7 +73,8 @@ internal fun GitHubRelease.toNightlyReleaseIfNewer(currentRun: Int): AppRelease?
 
 /**
  * The github-flavour APK for this device: the split build for its preferred ABI, else the universal
- * `flow.apk`, else any github APK. Foss builds are never picked; they are signed for other stores.
+ * build, else any github APK. Foss builds are never picked (they are signed for other stores), and
+ * neither are nightlies — those reach devices only through the nightly channel.
  */
 internal fun selectApk(
     assets: List<GitHubAsset>,
@@ -79,15 +82,17 @@ internal fun selectApk(
 ): GitHubAsset? {
     val github =
         assets.filter {
-            it.name.endsWith(APK_SUFFIX, ignoreCase = true) && !it.name.startsWith(FOSS_PREFIX, ignoreCase = true)
+            it.name.endsWith(APK_SUFFIX, ignoreCase = true) &&
+                !it.name.removeSuffix(APK_SUFFIX).contains(FOSS_APK_PART, ignoreCase = true) &&
+                !NightlyApk.matches(it.name)
         }
-    val splits = github.filter { asset -> supportedAbis.any { asset.name.equals("flow-$it.apk", ignoreCase = true) } }
+    val splits = github.filter { asset -> supportedAbis.any { abi -> asset.name.endsWith("-$abi$APK_SUFFIX", ignoreCase = true) } }
     if (splits.isNotEmpty()) {
-        return supportedAbis.firstNotNullOfOrNull { abi -> splits.firstOrNull { it.name.equals("flow-$abi.apk", ignoreCase = true) } }
+        return supportedAbis.firstNotNullOfOrNull { abi -> splits.firstOrNull { it.name.endsWith("-$abi$APK_SUFFIX", ignoreCase = true) } }
     }
-    val publishesSplits = github.any { it.name.startsWith("flow-", ignoreCase = true) }
-    if (publishesSplits && github.none { it.name.equals(UNIVERSAL_APK, ignoreCase = true) }) return null
-    return github.firstOrNull { it.name.equals(UNIVERSAL_APK, ignoreCase = true) } ?: github.firstOrNull()
+    val universal = github.filterNot { asset -> ApkAbiSuffix.containsMatchIn(asset.name) }
+    if (github.any { asset -> ApkAbiSuffix.containsMatchIn(asset.name) } && universal.isEmpty()) return null
+    return universal.firstOrNull() ?: github.firstOrNull()
 }
 
 private fun GitHubAsset.toReleaseApk(): ReleaseApk =

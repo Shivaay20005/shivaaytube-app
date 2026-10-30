@@ -77,11 +77,11 @@ class NavigationDestinationsTest {
     @Test
     fun malformedHandleChannelUrlsAreRepaired() {
         assertEquals(
-            "https://www.youtube.com/@shivaay",
+            "https://www.youtube.com/@flow",
             youtubeChannelUrl("https://youtube.com/channel/@flow"),
         )
         assertEquals(
-            "https://www.youtube.com/@shivaay",
+            "https://www.youtube.com/@flow",
             youtubeChannelUrl("https://m.youtube.com/@flow/videos"),
         )
     }
